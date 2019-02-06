@@ -94,7 +94,6 @@ onready var environment = $"/root/lobby".get_environment()
 onready var GraphicsBlurb = $"Panel/GraphicsBlurb"
 onready var GraphicsInfo = $"Panel/GraphicsInfo"
 onready var ResolutionDropdown = $"Panel/DisplayResolution/display_resolution"
-onready var AudioDropdown = $"Panel/Mix target/target"
 
 func _ready():
 	$"Panel/GraphicsQuality/graphics_preset".select(default_preset)

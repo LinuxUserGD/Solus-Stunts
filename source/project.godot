@@ -20,6 +20,10 @@ run/main_scene="res://lobby.tscn"
 boot_splash/image="res://splash screen.png"
 config/icon="res://icon.png"
 
+[autoload]
+
+gamestate="*res://gamestate.gd"
+
 [display]
 
 window/stretch/mode="viewport"
@@ -128,4 +132,5 @@ editor/plugins/animation_tree_editor="AnimationTreeEditor.dll"
 
 [rendering]
 
+quality/intended_usage/framebuffer_allocation=3
 environment/default_environment="res://default_env.tres"
