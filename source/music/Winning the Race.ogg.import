@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Winning the Race.ogg-54bd52276fdd10bbaba6a48864255d1f.oggstr"
+
+[deps]
+
+source_file="res://music/Winning the Race.ogg"
+source_md5="5470bac038fed70d7887c57ca69a02fb"
+
+dest_files=[ "res://.import/Winning the Race.ogg-54bd52276fdd10bbaba6a48864255d1f.oggstr" ]
+dest_md5="2d634bd289832abc80f3e50f04d01105"
+
+[params]
+
+loop=true
+loop_offset=0

@@ -6,7 +6,7 @@ var player_name = ""
 var track = 0
 var index = 0
 var players = {}
-var car_num=1
+
 signal player_list_changed()
 signal connection_failed()
 signal connection_succeeded()
@@ -53,55 +53,26 @@ remote func unregister_player(id):
 
 remote func pre_start_game(tr):
 	var world = load("res://world.tscn").instance()
-	get_tree().get_root().get_node("lobby/mobile").hide()
-	$"/root/lobby/mobile/speed".show()
-	$"/root/lobby/play".queue_free()
-	$"/root/lobby/UI".queue_free()
-	$"/root/lobby/car_showcase".queue_free()
-	$"/root/lobby/car".queue_free()
-	set_process_input(false)
-	
+	var music = load("res://music/Winning the Race.ogg")
+	get_tree().get_root().get_node("lobby3D/SettingsGUI/AudioStreamPlayer").stream = music
+	get_tree().get_root().get_node("lobby3D/SettingsGUI/AudioStreamPlayer").play()
+	get_tree().get_root().get_node("lobby3D/lobby").hide()
 	get_tree().get_root().add_child(world)
 	var newtrack
-	if track==1:
-		newtrack = load("res://tracks/1/track1.tscn").instance()
-		set_background(load("res://hdri/umhlanga_sunrise_2k.hdr"))
-		$"/root/lobby/AudioStreamPlayer".stream = load("res://assets/music/Theme of Agrual.ogg")
-	
-	if track==2:
-		newtrack = load("res://tracks/2/track2.tscn").instance()
-		set_background(load("res://hdri/moonless_golf_2k.hdr"))
-		$"/root/lobby/AudioStreamPlayer".stream = load("res://assets/music/Tactical Pursuit.ogg")
-	if track==3:
-		newtrack = load("res://tracks/3/track3.tscn").instance()
-		set_background(load("res://hdri/cape_hill_2k.hdr"))
-		$"/root/lobby/AudioStreamPlayer".stream = load("res://assets/music/Pleasant Creek.ogg")
-	if track==4:
-		newtrack = load("res://tracks/4/track4.tscn").instance()
-		set_background(load("res://hdri/spruit_sunrise_2k.hdr"))
-		$"/root/lobby/AudioStreamPlayer".stream = load("res://assets/music/Pizza Dungeon.ogg")
-	if track==5:
-		newtrack = load("res://tracks/5/track5.tscn").instance()
-		set_background(load("res://hdri/syferfontein_6d_clear_2k.hdr"))
-		$"/root/lobby/AudioStreamPlayer".stream = load("res://assets/music/Lively Meadow.ogg")
+	if tr == 1:
+		newtrack = load("res://tracks/1/track1.scn").instance()
+	if tr == 2:
+		newtrack = load("res://tracks/2/track2.scn").instance()
+	if tr == 3:
+		newtrack = load("res://tracks/3/track3.scn").instance()
 	world.get_node("track").add_child(newtrack)
-	$"/root/lobby/AudioStreamPlayer".play()
-	set_process_input(true)
-	$"/root/lobby/mobile".set_process_input(true)
-	var car_scene
-	if car_num==1:
-		car_scene = load("res://car/1/car.tscn")
-	if car_num==2:
-		car_scene = load("res://car/2/car2.tscn")
-	if car_num==3:
-		car_scene = load("res://car/3/car3.tscn")
-	if car_num==4:
-		car_scene = load("res://car/4/car4.tscn")
+	
+	var car_scene = load("res://car/car.scn")
+		
 	var car = car_scene.instance()
 	car.set_name(str(get_tree().get_network_unique_id()))
 	car.set_network_master(get_tree().get_network_unique_id())
-	car.set_player_name("HugeGameArt")
-	world.car = car
+	car.set_player_name(player_name)
 	world.get_node("vehicles").add_child(car)
 	for pn in players:
 		car = car_scene.instance()
@@ -115,18 +86,15 @@ remote func pre_start_game(tr):
 		
 
 # Set up score
-	#world.get_node("score").add_player(get_tree().get_network_unique_id(), player_name)
-	#for pn in players:
-	#	world.get_node("score").add_player(pn, players[pn])
+	world.get_node("score").add_player(get_tree().get_network_unique_id(), player_name)
+	for pn in players:
+		world.get_node("score").add_player(pn, players[pn])
 
 	if (not get_tree().is_network_server()):
 		# Tell server we are ready to start
 		rpc_id(1, "ready_to_start", get_tree().get_network_unique_id())
 	elif players.size() == 0:
 		post_start_game()
-
-func set_background(background):
-	$"/root/lobby".environment.background_sky.panorama = background
 
 remote func post_start_game():
 	get_tree().set_pause(false)
