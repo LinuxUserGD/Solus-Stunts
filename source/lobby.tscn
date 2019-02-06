@@ -56,6 +56,7 @@ anti_aliasing = false
 [sub_resource type="DynamicFont" id=5]
 
 size = 30
+use_mipmaps = false
 font_data = ExtResource( 8 )
 
 [sub_resource type="Theme" id=6]
@@ -147,6 +148,7 @@ environment = SubResource( 2 )
 script = ExtResource( 1 )
 
 [node name="mobile" type="Control" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -336,7 +338,7 @@ transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0
 current = true
 
 [node name="MeshInstance" type="MeshInstance" parent="car_showcase/Camera"]
-transform = Transform( 17.5, 0, 0, 0, 10, -4.47035e-08, 0, 4.47035e-07, 1, 0, 0, -6.98279 )
+transform = Transform( 17.5, 0, 0, 0, 10, -4.47035e-008, 0, 4.47035e-007, 1, 0, 0, -6.98279 )
 mesh = SubResource( 10 )
 material/0 = null
 
@@ -468,13 +470,13 @@ margin_bottom = 64.0
 texture_normal = ExtResource( 15 )
 
 [node name="car_load1" parent="." instance=ExtResource( 16 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0.5, -5 )
+transform = Transform( -1, 0, -3.25841e-007, 0, 1, 0, 3.25841e-007, 0, -1, 0, 0.5, -5 )
 physics_material_override = SubResource( 12 )
 gravity_scale = 0.0
 force = 1500
 
 [node name="car_load2" parent="." instance=ExtResource( 17 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0.5, -10 )
+transform = Transform( -1, 0, -3.25841e-007, 0, 1, 0, 3.25841e-007, 0, -1, 0, 0.5, -10 )
 physics_material_override = SubResource( 13 )
 gravity_scale = 0.0
 force = 1500
@@ -623,6 +625,7 @@ size_flags_vertical = 1
 size_flags_stretch_ratio = 0.0
 theme = ExtResource( 6 )
 value = 75.0
+ticks_on_borders = true
 
 [node name="ConfirmButton" type="Button" parent="SettingsGUI/Panel"]
 margin_left = 416.0

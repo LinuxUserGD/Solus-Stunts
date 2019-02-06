@@ -5,32 +5,15 @@
 
 [sub_resource type="StyleBoxFlat" id=1]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
 bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.850824 )
-draw_center = true
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.828745 )
-border_blend = false
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
 corner_detail = 1
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
 shadow_color = Color( 0, 0, 0, 0 )
-shadow_size = 0
 anti_aliasing = false
-anti_aliasing_size = 1
-_sections_unfolded = [ "Border", "Border Width", "Content Margin", "Corner Radius", "Shadow" ]
 
 [node name="world" type="Spatial"]
 script = ExtResource( 1 )
@@ -45,15 +28,8 @@ margin_left = -45.0
 margin_top = -75.0
 margin_right = 45.0
 margin_bottom = 75.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 theme = ExtResource( 2 )
 custom_styles/panel = SubResource( 1 )
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
 
 [node name="number" type="TextureButton" parent="countdown"]
 anchor_left = 0.5
@@ -64,35 +40,12 @@ margin_left = -45.0
 margin_top = -75.0
 margin_right = 45.0
 margin_bottom = 75.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 expand = true
 stretch_mode = 4
-_sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Timer" type="Timer" parent="countdown"]
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
 
 [node name="audio" type="AudioStreamPlayer" parent="countdown"]
-stream = null
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-stream_paused = false
-mix_target = 0
-bus = "Master"
 
 [node name="vehicles" type="Spatial" parent="."]
 
@@ -100,23 +53,12 @@ bus = "Master"
 
 [node name="round" type="Label" parent="."]
 anchor_left = 1.0
-anchor_top = 0.0
 anchor_right = 1.0
-anchor_bottom = 0.0
 margin_left = -243.0
 margin_top = 20.0
 margin_right = -166.0
 margin_bottom = 34.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "round 1 of 3"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [connection signal="timeout" from="countdown/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="finished" from="countdown/audio" to="." method="_on_audio_finished"]

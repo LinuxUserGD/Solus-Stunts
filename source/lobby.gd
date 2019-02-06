@@ -9,6 +9,7 @@ var car3
 var car4
 var track = 0
 var car_num=1
+var car_num2=1
 
 var img_s = carimg
 var col_s = Color(1.0,1.0,1.0)
@@ -19,12 +20,13 @@ func _ready():
 	car3 = load("res://car/3/car3.tscn").instance()
 	car4 = load("res://car/4/car4.tscn").instance()
 	loading(get_node("car"))
-	set_process_input(false)
+	set_process_input(true)
 	get_node("mobile").set_process_input(false)
 func loading(c):
 	get_node("car_showcase/ground").angular_velocity.y = 0.5
 	c.set_player_name("")
 	set_wheel_pos(c)
+	init_connection()
 
 func init_connection():
 	gamestate.connect("connection_failed", self, "_on_connection_failed")
@@ -128,6 +130,7 @@ func refresh_lobby():
 	get_node("mobile/players/start").disabled=not get_tree().is_network_server()
 
 func _on_join_pressed():
+	gamestate.car_num2 = car_num2
 	if invalid_name():
 		return
 	var ip = get_node("mobile/connect/ip").text
@@ -145,6 +148,7 @@ func _input(event):
 		right()
 	if Input.is_action_pressed("ui_left") and not event.is_echo():
 		left()
+		print("hello")
 	if event.is_action_pressed("toggle_menu"):
 		var settings = get_node("SettingsGUI")
 		settings.visible = !settings.visible
@@ -153,58 +157,13 @@ func _input(event):
 	if event.is_action_pressed("return"):
 		get_tree().change_scene("res://lobby.tscn")
 
-func start():
-	var world = load("res://world.tscn").instance()
-	
-	get_node("mobile/speed").show()
-	get_node("play").queue_free()
-	get_node("UI").queue_free()
-	get_node("car_showcase").queue_free()
-	get_node("car").queue_free()
-	set_process_input(false)
-	add_child(world)
-	var newtrack
-	if track==1:
-		newtrack = load("res://tracks/1/track1.tscn").instance()
-		set_background(load("res://hdri/umhlanga_sunrise_2k.hdr"))
-		get_node("AudioStreamPlayer").stream = load("res://assets/music/Theme of Agrual.ogg")
-	
-	if track==2:
-		newtrack = load("res://tracks/2/track2.tscn").instance()
-		set_background(load("res://hdri/moonless_golf_2k.hdr"))
-		get_node("AudioStreamPlayer").stream = load("res://assets/music/Tactical Pursuit.ogg")
-	if track==3:
-		newtrack = load("res://tracks/3/track3.tscn").instance()
-		set_background(load("res://hdri/cape_hill_2k.hdr"))
-		get_node("AudioStreamPlayer").stream = load("res://assets/music/Pleasant Creek.ogg")
-	if track==4:
-		newtrack = load("res://tracks/4/track4.tscn").instance()
-		set_background(load("res://hdri/spruit_sunrise_2k.hdr"))
-		get_node("AudioStreamPlayer").stream = load("res://assets/music/Pizza Dungeon.ogg")
-	if track==5:
-		newtrack = load("res://tracks/5/track5.tscn").instance()
-		set_background(load("res://hdri/syferfontein_6d_clear_2k.hdr"))
-		get_node("AudioStreamPlayer").stream = load("res://assets/music/Lively Meadow.ogg")
-	world.get_node("track").add_child(newtrack)
-	get_node("AudioStreamPlayer").play()
-	var car_scene
-	if car_num==1:
-		car_scene = load("res://car/1/car.tscn")
-	if car_num==2:
-		car_scene = load("res://car/2/car2.tscn")
-	if car_num==3:
-		car_scene = load("res://car/3/car3.tscn")
-	if car_num==4:
-		car_scene = load("res://car/4/car4.tscn")
-	var car = car_scene.instance()
-	car.set_player_name("HugeGameArt")
-	world.car = car
-	world.get_node("vehicles").add_child(car)
+
 
 func _on_settings_pressed():
 	get_node("SettingsGUI").visible = true
 
 func _on_start_pressed():
+	gamestate.car_num = car_num
 	gamestate.begin_game()
 
 
