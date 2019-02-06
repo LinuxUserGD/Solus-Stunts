@@ -1,115 +1,130 @@
 ## Music
+By Matthew Pablo:
 
-Music by Matthew Pablo
-http://www.matthewpablo.com
+Tactical Pursuit: https://opengameart.org/content/tactical-pursuit (license: CC-BY 3.0)
 
-1) Tactical Pursuit: https://opengameart.org/content/tactical-pursuit
+Vilified: https://opengameart.org/content/vilified (license: CC-BY 3.0)
 
-2) ArcLight - Epic Orchestral/Rock Soundtrack: https://opengameart.org/content/arclight-epic-orchestralrock-soundtrack
+ArcLight - Epic Orchestral/Rock Soundtrack: https://opengameart.org/content/arclight-epic-orchestralrock-soundtrack (license: CC-BY 3.0)
 
-3) Pleasant Creek: https://opengameart.org/content/pleasant-creek
+ 
+By section31:
 
-4) Theme of Agrual: https://opengameart.org/content/theme-of-agrual
+Winning the Race: https://opengameart.org/content/winning-the-race (license: CC0)
 
-5) Lively Meadow: https://opengameart.org/content/lively-meadow-victory-fanfare-and-song
 
-License: CC-BY 3.0
+By Janne Sinisalo (Skiessi):
 
-Pizza Dungeon by coda (CC-BY-NC-SA 3.0):
+Skiessi-C64: https://lmms.io/lsp/?action=show&file=472 (license: CC-BY 3.0)
 
-https://soundcloud.com/coda/pizza-dungeon-b2
+
+Folder: music
 
 
 ## HDRI
+By Greg Zaal (HDRI Haven):
 
-HDRI Haven by Greg Zaal:
-High quality HDRIs for free
-https://hdrihaven.com/
+Moonless Golf: https://hdrihaven.com/hdri/?h=moonless_golf (license: CC0)
+
+Table Mountain 1: https://hdrihaven.com/hdri/?h=table_mountain_1 (license: CC0)
+
+Folder: HDRI
 
 
 ## 3D assets
+By SONGKRO:
 
-Cars by SONGKRO
-https://www.blendswap.com/user/SONGKRO
-
-1) CAR 739
-
-2) CAR 4
+Car 739: https://www.blendswap.com/blends/view/56683 (license: CC0)
 
 
-Substance Futuristic Post Apocalyptic Car: https://sketchfab.com/models/4237c6f68cbf428cb26f576a7e475264 (license: CC BY-NC 4.0)
-
-Beam Runner Ship: https://www.blendswap.com/blends/view/40075 (license: CC-BY)
+Folder: objects/car
 
 
 ## Textures
+By Dmitriy Chugai:
 
-CC0 Textures by StruffelProductions:
-Free PBR materials, no attribution required!
-https://www.cc0textures.com/
+Seamless stone ground texture: http://texturelib.com/texture/?path=/Textures/ground/stone%20ground/ground_stone_ground_0029 (license: http://texturelib.com/license/)
 
-3DTextures.me - Free CC0 Seamless Textures:
-https://3dtextures.me/
-- https://3dtextures.me/2017/12/28/water-001/
-- https://3dtextures.me/2018/02/26/snow-001/
+Grass texture: http://texturelib.com/texture/?path=/Textures/grass/grass/grass_grass_0124 (license: http://texturelib.com/license/)
+
+Seamless water texture: http://texturelib.com/texture/?path=/Textures/water/water/water_water_0024 (license: http://texturelib.com/license/)
+
+
+Folder: textures/splatmap
+
 
 ## Tracks
+By tigertowel:
 
-1) Blend-a-Race by tigertowel:
-https://www.blendswap.com/blends/view/73171
-
-2) Beam Runner City with Track by turnpike101:
-https://www.blendswap.com/blends/view/40080 (CC-BY 3.0)
-
-3) Channelled Land by MacroManJr:
-https://www.blendswap.com/blends/view/70029
-
-4) Vehicle Demo by BastiaanOlij:
-https://github.com/BastiaanOlij/vehicle-demo (MIT license + textures from Textures.com)
-
-5) Ultimate Racer by Rahul Raina:
-https://www.blendswap.com/blends/view/72617 (CC-BY-SA 3.0)
+Blend-a-Race: https://www.blendswap.com/blends/view/73171 (license: CC0)
 
 
-## Godot Projects
-
-1) FreeRoamRoguelikeRacerPrototype by Zireael and contributors:
-https://github.com/Zireael07/FreeRoamRoguelikeRacerPrototype
+Folder: tracks/1
 
 
-2) Godot-Sponza by Hugo Locurcio (Calinou) and contributors:
-https://github.com/Calinou/godot-sponza
 
-3) Vehicle Demo by BastiaanOlij and contributors:
-https://github.com/BastiaanOlij/vehicle-demo
+By turnpike101:
 
-4) Godot demo projects by Juan Linietsky (reduz), Ariel Manzur (punto-) and contributors:
-https://github.com/godotengine/godot-demo-projects
-- Multiplayer Bomber
-- Rich Text Label (BBCode)
-- Truck Town
-
-5) Godot Motion Blur by Bauxitedev and contributors:
-https://github.com/Bauxitedev/godot-motion-blur
-
-6) Godot Water Material by Maujoe and contributors:
-https://github.com/Maujoe/godot-basic-water-material
-
-7) Volumetric Fog by Bauxitedev and contributors:
-https://github.com/Bauxitedev/volumetric-fog-demo
+Beam Runner City with Track: https://www.blendswap.com/blends/view/40080 (license: CC0)
 
 
-License: MIT
+Folder: tracks/2
+
+
+
+By MacroManJr:
+
+Channelled Land: https://www.blendswap.com/blends/view/70029 (license: CC0)
+
+
+Folder: tracks/3
+
+
+## Car Setup
+By (c) Zireael (Zireael07):
+
+Files: https://github.com/Zireael07/FreeRoamRoguelikeRacerPrototype/tree/master/game/car (license: MIT)
+
+- follow_camera.gd
+
+- vehicle.gd
+
+- car_AI_racer.tscn
+
+Files: https://github.com/Zireael07/FreeRoamRoguelikeRacerPrototype/tree/master/game/hud (license: MIT)
+
+- car label
+
+
+Folder: car; hud
+
+
+## Settings
+By (c) Hugo Locurcio (Calinou) and contributors:
+
+Files: https://github.com/Calinou/godot-sponza/blob/master/scenes/settings_gui.tscn (license: MIT)
+
+- lobby3D.tscn
+
+Files: https://github.com/Calinou/godot-sponza/blob/master/scripts/settings_gui.gd (license: MIT)
+
+- settings_gui.gd
 
 
 ## Background Image
+By Shrikesh Kumar (shrikeshmaster):
 
-Old vintage car by Piopis:
-https://www.blendswap.com/blends/view/77134
+Bike, Riding, Clouds, Bicycle: https://pixabay.com/en/bike-riding-clouds-bicycle-ride-2511594/ (license: CC0)
 
+
+By Piopis (pio123321):
+
+Old vintage car: https://www.blendswap.com/blends/view/77134 (license: CC0)
+
+
+Folder: images/loading
 
 ## Font
-
 Copyright (c) 2010-2013 by tyPoland:
 
 Reserved Font Name "Carlito": 
@@ -117,80 +132,42 @@ https://fontlibrary.org/en/font/carlito (license: OFL)
 
 
 ## Icon
+By barretward:
 
-Vintage Wood Mini Van Icon by barretward:
-https://openclipart.org/detail/182113/vintage-wood-mini-van-icon
+Vintage Wood Mini Van Icon: https://openclipart.org/detail/182113/vintage-wood-mini-van-icon (license: CC0)
 
 
 ## UI
+By Stormcloud:
 
-1) Pink button settings by qubodup (Librarian):
-https://openclipart.org/detail/202759/pink-button-settings
+Wheel: https://openclipart.org/detail/17705/wheel (license: https://openclipart.org/share)
 
-2) Onscreen controls by Kenney:
-https://opengameart.org/content/onscreen-controls-8-styles
-
-3) Glossy Number by mondspeer:
-https://openclipart.org/user-detail/mondspeer
+Folder: images/ui
 
 
-## Intro Template
+## Demo:
 
-Intro Template 4 by Maxpath:
-https://www.blendswap.com/blends/view/74766
+Godot Engine demo projects:
 
-
-## Software:
-
-Godot Engine: https://godotengine.org/
-
-Blender: https://www.blender.org/
-
-Gimp: https://www.gimp.org/
-
-MakeHuman: http://www.makehuman.org/
-
-Inkscape: https://inkscape.org/
+Multiplayer Bomber:
+https://github.com/godotengine/godot-demo-projects/tree/master/networking/multiplayer_bomber (license: MIT)
 
 
-## Plugins
-glTF-Blender-Exporter: https://github.com/KhronosGroup/glTF-Blender-Exporter
+## Tutorial
+By Nuno Donato:
 
-License: Apache License 2.0
+Splatmap shader: https://www.patreon.com/posts/8340768
 
-## certs
+Ported to GLES3 fragment shader (Godot 3)
 
-ca-certificates: https://github.com/godotengine/godot/blob/master/thirdparty/certs/ca-certificates.crt
+Folder: shader
 
-Third party library (see https://github.com/godotengine/godot/blob/master/thirdparty/README.md):
-
-- Upstream: Mozilla, via https://apps.fedoraproject.org/packages/ca-certificates
-- Version: 2018.2.22
-- License: MPL 2.0
-
-File extracted from a recent Fedora install:
-/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
-(It can't be extracted directly from the package,
-as it's generated on the user's system.)
 
 ## License
-
-CC0: https://creativecommons.org/publicdomain/zero/1.0/legalcode
-
 CC-BY 3.0: https://creativecommons.org/licenses/by/3.0/legalcode
 
-CC BY-NC 4.0: https://creativecommons.org/licenses/by-nc/4.0/legalcode
-
-CC-BY-NC-SA 3.0
-https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+CC0: https://creativecommons.org/publicdomain/zero/1.0/legalcode
 
 MIT: https://opensource.org/licenses/mit-license.php
 
 OFL: http://scripts.sil.org/OFL
-
-Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0.html
-
-MPL 2.0: https://www.mozilla.org/en-US/MPL/2.0/
-
-
-

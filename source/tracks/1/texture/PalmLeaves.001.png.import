@@ -8,14 +8,16 @@ path.etc2="res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.etc
 [deps]
 
 source_file="res://tracks/1/texture/PalmLeaves.001.png"
+source_md5="06561adbe94d7a960793588321b90820"
+
 dest_files=[ "res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.s3tc.stex", "res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.etc2.stex" ]
+dest_md5="bc87a2aa5a9db81efeafd94843161994"
 
 [params]
 
 compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
-compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true
 flags/filter=true
@@ -25,7 +27,6 @@ flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
-process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=false

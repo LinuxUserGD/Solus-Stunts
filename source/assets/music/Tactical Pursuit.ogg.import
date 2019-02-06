@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Tactical Pursuit.ogg-d92f699ae99eb2a86e33079fe25ffbdc.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Tactical Pursuit.ogg"
+dest_files=[ "res://.import/Tactical Pursuit.ogg-d92f699ae99eb2a86e33079fe25ffbdc.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

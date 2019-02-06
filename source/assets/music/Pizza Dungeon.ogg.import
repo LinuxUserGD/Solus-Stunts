@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Pizza Dungeon.ogg-ed46e4df922c4664ed832f0f8948dce4.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Pizza Dungeon.ogg"
+dest_files=[ "res://.import/Pizza Dungeon.ogg-ed46e4df922c4664ed832f0f8948dce4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

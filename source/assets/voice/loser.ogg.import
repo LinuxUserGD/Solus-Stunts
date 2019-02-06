@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/loser.ogg-cb136598f5e4ed22260c4f44e98b5f11.oggstr"
+
+[deps]
+
+source_file="res://assets/voice/loser.ogg"
+dest_files=[ "res://.import/loser.ogg-cb136598f5e4ed22260c4f44e98b5f11.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -8,14 +8,16 @@ path.etc2="res://.import/Bounds.jpg-0034d416fdeb7fac2c12d6f47fc82283.etc2.stex"
 [deps]
 
 source_file="res://tracks/1/texture/Bounds.jpg"
+source_md5="3fbf45780b104f1ad712467ac2da906d"
+
 dest_files=[ "res://.import/Bounds.jpg-0034d416fdeb7fac2c12d6f47fc82283.s3tc.stex", "res://.import/Bounds.jpg-0034d416fdeb7fac2c12d6f47fc82283.etc2.stex" ]
+dest_md5="fad93453c4d0d6056c2009dff9a2bd08"
 
 [params]
 
 compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
-compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true
 flags/filter=true
@@ -25,7 +27,6 @@ flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
-process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=false
