@@ -7,16 +7,14 @@ path="res://.import/screen.jpg-b1c49b36e351bc67fdfc1a5fa109e93a.stex"
 [deps]
 
 source_file="res://images/screen.jpg"
-source_md5="ba151d1d75ffa480e788c3abb0f5df7e"
-
 dest_files=[ "res://.import/screen.jpg-b1c49b36e351bc67fdfc1a5fa109e93a.stex" ]
-dest_md5="a9ae5ce4dcc52729e694d7092f65aac5"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +24,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

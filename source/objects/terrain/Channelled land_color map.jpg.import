@@ -8,16 +8,14 @@ path.etc2="res://.import/Channelled land_color map.jpg-22f86bd71f0516a9963272856
 [deps]
 
 source_file="res://objects/terrain/Channelled land_color map.jpg"
-source_md5="af87e1ef995d2d5a2ec335818acaf386"
-
 dest_files=[ "res://.import/Channelled land_color map.jpg-22f86bd71f0516a9963272856b8579fa.s3tc.stex", "res://.import/Channelled land_color map.jpg-22f86bd71f0516a9963272856b8579fa.etc2.stex" ]
-dest_md5="e8d66610ad018acce412bd18ad84d98a"
 
 [params]
 
 compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true
 flags/filter=true
@@ -27,6 +25,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=false

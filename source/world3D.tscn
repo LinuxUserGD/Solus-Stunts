@@ -1,7 +1,0 @@
-[gd_scene format=2]
-
-[node name="world3D" type="Spatial"]
-
-[node name="world2" type="Spatial" parent="." index="0"]
-
-

@@ -7,10 +7,7 @@ path="res://.import/car245.gltf-3e9d8913dee1583d240afe5454159a44.scn"
 [deps]
 
 source_file="res://objects/car/car245.gltf"
-source_md5="c9b2b9313f60f96040d9a1da2bdcc34e"
-
 dest_files=[ "res://.import/car245.gltf-3e9d8913dee1583d240afe5454159a44.scn" ]
-dest_md5="0072d02d5e81927cccbbe62a51ef494d"
 
 [params]
 

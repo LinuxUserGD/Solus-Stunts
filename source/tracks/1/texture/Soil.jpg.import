@@ -8,16 +8,14 @@ path.etc2="res://.import/Soil.jpg-fb77c154eb8eeeec42e7cace959bc5f6.etc2.stex"
 [deps]
 
 source_file="res://tracks/1/texture/Soil.jpg"
-source_md5="f102a538e0f9da2510c20d2100f79d7f"
-
 dest_files=[ "res://.import/Soil.jpg-fb77c154eb8eeeec42e7cace959bc5f6.s3tc.stex", "res://.import/Soil.jpg-fb77c154eb8eeeec42e7cace959bc5f6.etc2.stex" ]
-dest_md5="a11054a7791d392a70334d280fe0b681"
 
 [params]
 
 compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true
 flags/filter=true
@@ -27,6 +25,7 @@ flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=false

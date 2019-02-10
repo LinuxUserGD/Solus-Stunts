@@ -7,10 +7,7 @@ path="res://.import/terrain.gltf-2bc3fd71b73320f6b52f3b1dd53625bd.scn"
 [deps]
 
 source_file="res://objects/terrain/terrain.gltf"
-source_md5="e8ab823a53035a870d5068f866048ea1"
-
 dest_files=[ "res://.import/terrain.gltf-2bc3fd71b73320f6b52f3b1dd53625bd.scn" ]
-dest_md5="2428426eba1b5558b9783e48413bda20"
 
 [params]
 

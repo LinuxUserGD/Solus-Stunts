@@ -7,10 +7,7 @@ path="res://.import/wheel.gltf-858416ea2404d98c6a0dafba3175e64c.scn"
 [deps]
 
 source_file="res://objects/wheel/wheel.gltf"
-source_md5="36cf9298c635862dae6ea6048e187238"
-
 dest_files=[ "res://.import/wheel.gltf-858416ea2404d98c6a0dafba3175e64c.scn" ]
-dest_md5="adf098b3acd4b1bb035a8aee645c6662"
 
 [params]
 

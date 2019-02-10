@@ -7,10 +7,7 @@ path="res://.import/ArcLight.ogg-55fc4ecc57eff0dcec46852e32b5e2e0.oggstr"
 [deps]
 
 source_file="res://music/ArcLight.ogg"
-source_md5="f825a37c1d9999dd8d06bfd7275b3811"
-
 dest_files=[ "res://.import/ArcLight.ogg-55fc4ecc57eff0dcec46852e32b5e2e0.oggstr" ]
-dest_md5="52390732866d71deafe380a25c8d1204"
 
 [params]
 

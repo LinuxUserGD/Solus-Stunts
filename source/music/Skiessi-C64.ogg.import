@@ -7,10 +7,7 @@ path="res://.import/Skiessi-C64.ogg-07bb0f12f28162ad5a913158f97ef1c4.oggstr"
 [deps]
 
 source_file="res://music/Skiessi-C64.ogg"
-source_md5="bf07e566c18fa4e71d69a4bd5da3b21a"
-
 dest_files=[ "res://.import/Skiessi-C64.ogg-07bb0f12f28162ad5a913158f97ef1c4.oggstr" ]
-dest_md5="da4a0721593af3539c12e6c5d2c056eb"
 
 [params]
 
