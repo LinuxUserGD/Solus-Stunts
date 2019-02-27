@@ -39,14 +39,14 @@ func nextround(body):
 	if str(body).begins_with("[VehicleBody"):
 		if ROUND < 3:
 			ROUND += 1
-			$"/root/world/round".text="round " + str(ROUND) + " of 3"
+			$"/root/lobby/world/round".text="round " + str(ROUND) + " of 3"
 			if ROUND == 2:
-				$"/root/world/countdown/audio".stream = round2
+				$"/root/lobby/world/countdown/audio".stream = round2
 			if ROUND == 3:
-				$"/root/world/countdown/audio".stream = finalround
+				$"/root/lobby/world/countdown/audio".stream = finalround
 				
-			$"/root/world/countdown/audio".play()
+			$"/root/lobby/world/countdown/audio".play()
 		else:
-			get_tree().get_root().get_node("world").audioend()
-			$"/root/world/countdown/audio".stream = winner
-			$"/root/world/countdown/audio".play()
+			get_tree().get_root().get_node("lobby/world").audioend()
+			$"/root/lobby/world/countdown/audio".stream = winner
+			$"/root/lobby/world/countdown/audio".play()

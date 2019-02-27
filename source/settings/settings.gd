@@ -154,4 +154,4 @@ func _on_graphics_preset_item_selected( ID ):
 
 
 func _on_ReturnButton_pressed():
-	get_tree().change_scene("res://lobby.tscn")
+	get_tree().quit()

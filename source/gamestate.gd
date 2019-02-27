@@ -69,7 +69,7 @@ remote func pre_start_game(tr, car_num, car_num2):
 	get_tree().get_root().get_node("lobby/AudioStreamPlayer").stream = music
 	get_tree().get_root().get_node("lobby/AudioStreamPlayer").play()
 	get_tree().get_root().get_node("lobby/mobile").hide()
-	get_tree().get_root().add_child(world)
+	get_tree().get_root().get_node("lobby").add_child(world)
 	var newtrack
 
 	if tr==1:

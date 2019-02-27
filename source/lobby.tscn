@@ -304,6 +304,7 @@ theme = SubResource( 6 )
 auto_height = true
 
 [node name="car_showcase" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="ground" type="RigidBody" parent="car_showcase"]
 physics_material_override = SubResource( 7 )
@@ -319,7 +320,7 @@ transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0
 current = true
 
 [node name="MeshInstance" type="MeshInstance" parent="car_showcase/Camera"]
-transform = Transform( 17.5, 0, 0, 0, 10, -4.47035e-008, 0, 4.47035e-007, 1, 0, 0, -6.98279 )
+transform = Transform( 17.5, 0, 0, 0, 10, -4.47035e-08, 0, 4.47035e-07, 1, 0, 0, -6.98279 )
 mesh = SubResource( 10 )
 material/0 = null
 
@@ -338,6 +339,7 @@ margin_bottom = 128.0
 texture_normal = ExtResource( 13 )
 
 [node name="UI" type="Control" parent="."]
+editor/display_folded = true
 margin_bottom = 1080.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI"]
@@ -450,13 +452,13 @@ margin_bottom = 64.0
 texture_normal = ExtResource( 16 )
 
 [node name="car_load1" parent="." instance=ExtResource( 17 )]
-transform = Transform( -1, 0, -3.25841e-007, 0, 1, 0, 3.25841e-007, 0, -1, 0, 0.5, -5 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0.5, -5 )
 physics_material_override = SubResource( 12 )
 gravity_scale = 0.0
 force = 1500
 
 [node name="car_load2" parent="." instance=ExtResource( 18 )]
-transform = Transform( -1, 0, -3.25841e-007, 0, 1, 0, 3.25841e-007, 0, -1, 0, 0.5, -10 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0.5, -10 )
 physics_material_override = SubResource( 13 )
 gravity_scale = 0.0
 force = 1500

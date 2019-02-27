@@ -56,4 +56,4 @@ func audioend():
 
 func _on_audio_finished():
 	if endaudio:
-		get_tree().change_scene("res://lobby.tscn")
+		get_tree().quit()
