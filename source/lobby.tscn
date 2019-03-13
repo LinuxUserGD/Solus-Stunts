@@ -6,21 +6,21 @@
 [ext_resource path="res://assets/ui/3.png" type="Texture" id=4]
 [ext_resource path="res://assets/ui/7.png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/4.png" type="Texture" id=6]
-[ext_resource path="res://default.tres" type="Theme" id=7]
-[ext_resource path="res://font/font_mp.tres" type="DynamicFont" id=8]
-[ext_resource path="res://font/carlito/google-crosextrafonts-carlito-20130920/Carlito-Regular.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://font/font_list.tres" type="DynamicFont" id=10]
-[ext_resource path="res://car/showcase/material/surface.material" type="Material" id=11]
-[ext_resource path="res://images/car.jpg" type="Texture" id=12]
-[ext_resource path="res://assets/ui/35.png" type="Texture" id=13]
-[ext_resource path="res://assets/ui/34.png" type="Texture" id=14]
-[ext_resource path="res://font/font.res" type="DynamicFont" id=15]
-[ext_resource path="res://assets/ui/32.png" type="Texture" id=16]
-[ext_resource path="res://car/2/car2.tscn" type="PackedScene" id=17]
-[ext_resource path="res://car/3/car3.tscn" type="PackedScene" id=18]
-[ext_resource path="res://car/1/car.tscn" type="PackedScene" id=19]
-[ext_resource path="res://settings/settings.gd" type="Script" id=20]
-[ext_resource path="res://assets/music/ArcLight.ogg" type="AudioStream" id=21]
+[ext_resource path="res://car/showcase/material/surface.material" type="Material" id=7]
+[ext_resource path="res://images/car.jpg" type="Texture" id=8]
+[ext_resource path="res://assets/ui/35.png" type="Texture" id=9]
+[ext_resource path="res://assets/ui/34.png" type="Texture" id=10]
+[ext_resource path="res://font/font.res" type="DynamicFont" id=11]
+[ext_resource path="res://default.tres" type="Theme" id=12]
+[ext_resource path="res://assets/ui/32.png" type="Texture" id=13]
+[ext_resource path="res://car/2/car2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://car/3/car3.tscn" type="PackedScene" id=15]
+[ext_resource path="res://car/1/car.tscn" type="PackedScene" id=16]
+[ext_resource path="res://settings/settings.gd" type="Script" id=17]
+[ext_resource path="res://font/font_list.tres" type="DynamicFont" id=18]
+[ext_resource path="res://font/font_mp.tres" type="DynamicFont" id=19]
+[ext_resource path="res://assets/music/ArcLight.ogg" type="AudioStream" id=20]
+[ext_resource path="res://font/carlito/google-crosextrafonts-carlito-20130920/Carlito-Regular.ttf" type="DynamicFontData" id=21]
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 1 )
@@ -29,37 +29,9 @@ panorama = ExtResource( 1 )
 background_mode = 2
 background_sky = SubResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.850824 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.828745 )
-corner_detail = 1
-shadow_color = Color( 0, 0, 0, 0 )
-anti_aliasing = false
+[sub_resource type="PhysicsMaterial" id=3]
 
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.850824 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.828745 )
-corner_detail = 1
-shadow_color = Color( 0, 0, 0, 0 )
-anti_aliasing = false
-
-[sub_resource type="DynamicFont" id=5]
-size = 30
-font_data = ExtResource( 9 )
-
-[sub_resource type="Theme" id=6]
-
-[sub_resource type="PhysicsMaterial" id=7]
-
-[sub_resource type="ArrayMesh" id=8]
+[sub_resource type="ArrayMesh" id=4]
 surfaces/0 = {
 "aabb": AABB( -1, 0, -1, 2, 0.162714, 2 ),
 "array_data": PoolByteArray( 3, 57, 52, 49, 3, 185, 0, 60, 87, 71, 198, 0, 167, 86, 230, 127, 95, 50, 200, 52, 168, 57, 0, 0, 168, 185, 0, 60, 87, 71, 198, 0, 166, 82, 224, 127, 225, 44, 240, 50, 100, 59, 0, 0, 31, 182, 0, 60, 87, 71, 198, 0, 169, 90, 238, 127, 125, 8, 104, 54, 141, 58, 52, 49, 109, 181, 0, 60, 87, 71, 198, 0, 172, 93, 245, 127, 165, 48, 222, 54, 31, 182, 0, 0, 100, 59, 0, 60, 198, 71, 87, 0, 145, 204, 225, 127, 67, 58, 99, 59, 168, 185, 0, 0, 168, 57, 0, 60, 198, 71, 87, 0, 149, 192, 238, 127, 99, 59, 67, 58, 3, 185, 52, 49, 3, 57, 0, 60, 198, 71, 87, 0, 147, 197, 232, 127, 104, 58, 155, 57, 109, 181, 52, 49, 141, 58, 0, 60, 198, 71, 87, 0, 144, 211, 219, 127, 155, 57, 104, 58, 109, 53, 52, 49, 141, 186, 0, 60, 58, 71, 169, 0, 146, 55, 228, 127, 200, 52, 95, 50, 31, 54, 0, 0, 100, 187, 0, 60, 58, 71, 169, 0, 146, 55, 228, 127, 240, 50, 225, 44, 168, 57, 0, 0, 168, 185, 0, 60, 58, 71, 169, 0, 146, 56, 229, 127, 225, 44, 240, 50, 3, 57, 52, 49, 3, 185, 0, 60, 58, 71, 169, 0, 146, 56, 229, 127, 95, 50, 200, 52, 0, 0, 52, 49, 23, 59, 0, 60, 236, 71, 102, 0, 133, 230, 251, 127, 144, 56, 214, 58, 0, 0, 0, 0, 0, 60, 0, 60, 236, 71, 102, 0, 133, 229, 251, 127, 203, 56, 255, 59, 31, 182, 0, 0, 100, 59, 0, 60, 236, 71, 102, 0, 132, 231, 250, 127, 67, 58, 99, 59, 109, 181, 52, 49, 141, 58, 0, 60, 236, 71, 102, 0, 132, 232, 249, 127, 155, 57, 104, 58, 31, 182, 0, 0, 100, 187, 0, 60, 236, 71, 154, 0, 132, 0, 24, 127, 203, 56, 126, 8, 0, 0, 0, 0, 0, 188, 0, 60, 236, 71, 154, 0, 132, 0, 24, 127, 104, 54, 126, 8, 0, 0, 52, 49, 23, 187, 0, 60, 236, 71, 154, 0, 132, 0, 24, 127, 222, 54, 165, 48, 109, 181, 52, 49, 141, 186, 0, 60, 236, 71, 154, 0, 132, 0, 24, 127, 144, 56, 165, 48, 0, 0, 52, 49, 23, 187, 0, 60, 20, 71, 154, 0, 133, 26, 251, 127, 222, 54, 165, 48, 0, 0, 0, 0, 0, 188, 0, 60, 20, 71, 154, 0, 133, 27, 251, 127, 104, 54, 126, 8, 31, 54, 0, 0, 100, 187, 0, 60, 20, 71, 154, 0, 132, 25, 250, 127, 240, 50, 225, 44, 109, 53, 52, 49, 141, 186, 0, 60, 20, 71, 154, 0, 132, 24, 249, 127, 200, 52, 95, 50, 109, 53, 52, 49, 141, 58, 0, 60, 20, 71, 102, 0, 132, 0, 24, 127, 222, 54, 214, 58, 31, 54, 0, 0, 100, 59, 0, 60, 20, 71, 102, 0, 132, 0, 24, 127, 104, 54, 255, 59, 0, 0, 0, 0, 0, 60, 0, 60, 20, 71, 102, 0, 132, 0, 24, 127, 203, 56, 255, 59, 0, 0, 52, 49, 23, 59, 0, 60, 20, 71, 102, 0, 132, 0, 24, 127, 144, 56, 214, 58, 3, 185, 52, 49, 3, 185, 0, 60, 198, 71, 169, 0, 144, 229, 52, 127, 155, 57, 95, 50, 168, 185, 0, 0, 168, 185, 0, 60, 198, 71, 169, 0, 144, 226, 50, 127, 67, 58, 225, 44, 31, 182, 0, 0, 100, 187, 0, 60, 198, 71, 169, 0, 144, 231, 54, 127, 203, 56, 126, 8, 109, 181, 52, 49, 141, 186, 0, 60, 198, 71, 169, 0, 145, 234, 56, 127, 144, 56, 165, 48, 3, 57, 52, 49, 3, 57, 0, 60, 58, 71, 87, 0, 144, 27, 52, 127, 200, 52, 104, 58, 168, 57, 0, 0, 168, 57, 0, 60, 58, 71, 87, 0, 144, 30, 50, 127, 240, 50, 99, 59, 31, 54, 0, 0, 100, 59, 0, 60, 58, 71, 87, 0, 144, 25, 54, 127, 104, 54, 255, 59, 109, 53, 52, 49, 141, 58, 0, 60, 58, 71, 87, 0, 145, 22, 56, 127, 222, 54, 214, 58, 141, 186, 52, 49, 109, 181, 0, 60, 169, 71, 198, 0, 165, 197, 64, 127, 104, 58, 200, 52, 100, 187, 0, 0, 31, 182, 0, 60, 169, 71, 198, 0, 164, 192, 58, 127, 99, 59, 240, 50, 168, 185, 0, 0, 168, 185, 0, 60, 169, 71, 198, 0, 166, 204, 71, 127, 67, 58, 225, 44, 3, 185, 52, 49, 3, 185, 0, 60, 169, 71, 198, 0, 167, 211, 77, 127, 155, 57, 95, 50, 141, 58, 52, 49, 109, 53, 0, 60, 87, 71, 58, 0, 165, 59, 64, 127, 95, 50, 155, 57, 100, 59, 0, 0, 31, 54, 0, 60, 87, 71, 58, 0, 164, 64, 58, 127, 225, 44, 67, 58, 168, 57, 0, 0, 168, 57, 0, 60, 87, 71, 58, 0, 166, 52, 71, 127, 240, 50, 99, 59, 3, 57, 52, 49, 3, 57, 0, 60, 87, 71, 58, 0, 167, 45, 77, 127, 200, 52, 104, 58, 0, 188, 0, 0, 0, 0, 0, 60, 154, 71, 236, 0, 183, 166, 50, 127, 255, 59, 104, 54, 100, 187, 0, 0, 31, 182, 0, 60, 154, 71, 236, 0, 186, 174, 65, 127, 99, 59, 240, 50, 141, 186, 52, 49, 109, 181, 0, 60, 154, 71, 236, 0, 184, 170, 58, 127, 104, 58, 200, 52, 23, 187, 52, 49, 0, 0, 0, 60, 154, 71, 236, 0, 182, 163, 43, 127, 214, 58, 222, 54, 23, 59, 52, 49, 0, 0, 0, 60, 102, 71, 20, 0, 183, 91, 48, 127, 165, 48, 144, 56, 0, 60, 0, 0, 0, 0, 0, 60, 102, 71, 20, 0, 182, 96, 35, 127, 125, 8, 203, 56, 100, 59, 0, 0, 31, 54, 0, 60, 102, 71, 20, 0, 186, 83, 64, 127, 225, 44, 67, 58, 141, 58, 52, 49, 109, 53, 0, 60, 102, 71, 20, 0, 189, 74, 77, 127, 95, 50, 155, 57, 141, 186, 52, 49, 109, 53, 0, 60, 154, 71, 20, 0, 185, 152, 7, 127, 214, 58, 144, 56, 100, 187, 0, 0, 31, 54, 0, 60, 154, 71, 20, 0, 183, 153, 249, 127, 255, 59, 203, 56, 0, 188, 0, 0, 0, 0, 0, 60, 154, 71, 20, 0, 189, 152, 26, 127, 255, 59, 104, 54, 23, 187, 52, 49, 0, 0, 0, 60, 154, 71, 20, 0, 194, 155, 43, 127, 214, 58, 222, 54, 100, 59, 0, 0, 31, 182, 0, 60, 102, 71, 236, 0, 184, 104, 1, 127, 125, 8, 104, 54, 0, 60, 0, 0, 0, 0, 0, 60, 102, 71, 236, 0, 191, 103, 35, 127, 125, 8, 203, 56, 23, 59, 52, 49, 0, 0, 0, 60, 102, 71, 236, 0, 188, 104, 20, 127, 165, 48, 144, 56, 141, 58, 52, 49, 109, 181, 0, 60, 102, 71, 236, 0, 182, 101, 240, 127, 165, 48, 222, 54, 3, 185, 52, 49, 3, 57, 0, 60, 169, 71, 58, 0, 167, 170, 230, 127, 104, 58, 155, 57, 168, 185, 0, 0, 168, 57, 0, 60, 169, 71, 58, 0, 166, 174, 224, 127, 99, 59, 67, 58, 100, 187, 0, 0, 31, 54, 0, 60, 169, 71, 58, 0, 169, 166, 238, 127, 255, 59, 203, 56, 141, 186, 52, 49, 109, 53, 0, 60, 169, 71, 58, 0, 172, 163, 245, 127, 214, 58, 144, 56, 109, 181, 52, 49, 141, 186, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 144, 56, 165, 48, 0, 0, 52, 49, 23, 187, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 222, 54, 165, 48, 109, 53, 52, 49, 141, 186, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 200, 52, 95, 50, 3, 57, 52, 49, 3, 185, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 95, 50, 200, 52, 3, 185, 52, 49, 3, 185, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 155, 57, 95, 50, 141, 58, 52, 49, 109, 181, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 165, 48, 222, 54, 141, 186, 52, 49, 109, 181, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 104, 58, 200, 52, 23, 59, 52, 49, 0, 0, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 165, 48, 144, 56, 23, 187, 52, 49, 0, 0, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 214, 58, 222, 54, 141, 58, 52, 49, 109, 53, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 95, 50, 155, 57, 141, 186, 52, 49, 109, 53, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 214, 58, 144, 56, 3, 185, 52, 49, 3, 57, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 104, 58, 155, 57, 3, 57, 52, 49, 3, 57, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 200, 52, 104, 58, 109, 181, 52, 49, 141, 58, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 155, 57, 104, 58, 109, 53, 52, 49, 141, 58, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 222, 54, 214, 58, 0, 0, 52, 49, 23, 59, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 144, 56, 214, 58 ),
@@ -67,18 +39,35 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 98071,
 "index_count": 138,
-"material": ExtResource( 11 ),
+"material": ExtResource( 7 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 80
 }
 
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="SpatialMaterial" id=5]
 flags_unshaded = true
-albedo_texture = ExtResource( 12 )
+albedo_texture = ExtResource( 8 )
 
-[sub_resource type="QuadMesh" id=10]
-material = SubResource( 9 )
+[sub_resource type="QuadMesh" id=6]
+material = SubResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.850824 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.828745 )
+corner_detail = 1
+shadow_color = Color( 0, 0, 0, 0 )
+anti_aliasing = false
+
+[sub_resource type="PhysicsMaterial" id=8]
+
+[sub_resource type="PhysicsMaterial" id=9]
+
+[sub_resource type="PhysicsMaterial" id=10]
 
 [sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.850824 )
@@ -91,24 +80,7 @@ corner_detail = 1
 shadow_color = Color( 0, 0, 0, 0 )
 anti_aliasing = false
 
-[sub_resource type="PhysicsMaterial" id=12]
-
-[sub_resource type="PhysicsMaterial" id=13]
-
-[sub_resource type="PhysicsMaterial" id=14]
-
-[sub_resource type="StyleBoxFlat" id=15]
-bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.850824 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.828745 )
-corner_detail = 1
-shadow_color = Color( 0, 0, 0, 0 )
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id=16]
+[sub_resource type="StyleBoxFlat" id=12]
 content_margin_left = 16.0
 content_margin_right = 16.0
 content_margin_top = 16.0
@@ -122,9 +94,37 @@ border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.54902 )
 corner_detail = 1
 anti_aliasing = false
 
-[sub_resource type="StyleBoxEmpty" id=17]
+[sub_resource type="StyleBoxEmpty" id=13]
 
-[sub_resource type="StyleBoxEmpty" id=18]
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.850824 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.828745 )
+corner_detail = 1
+shadow_color = Color( 0, 0, 0, 0 )
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.850824 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.828745 )
+corner_detail = 1
+shadow_color = Color( 0, 0, 0, 0 )
+anti_aliasing = false
+
+[sub_resource type="DynamicFont" id=17]
+size = 30
+font_data = ExtResource( 21 )
+
+[sub_resource type="Theme" id=18]
 
 [node name="lobby" type="WorldEnvironment"]
 environment = SubResource( 2 )
@@ -136,7 +136,6 @@ anchor_bottom = 1.0
 script = ExtResource( 3 )
 
 [node name="steering" type="Control" parent="mobile"]
-editor/display_folded = true
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -417.0
@@ -153,7 +152,7 @@ rotation = 1.5708
 normal = ExtResource( 4 )
 
 [node name="speed" type="Control" parent="mobile"]
-editor/display_folded = true
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -169,150 +168,16 @@ normal = ExtResource( 5 )
 position = Vector2( 162.95, 291.732 )
 normal = ExtResource( 6 )
 
-[node name="connect" type="Panel" parent="mobile"]
-visible = false
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -592.0
-margin_bottom = 430.0
-theme = ExtResource( 7 )
-custom_styles/panel = SubResource( 3 )
-
-[node name="name_label" type="Label" parent="mobile/connect"]
-margin_left = 54.0
-margin_top = 46.0
-margin_right = 254.0
-margin_bottom = 96.0
-size_flags_horizontal = 2
-size_flags_vertical = 0
-custom_fonts/font = ExtResource( 8 )
-text = "Name:"
-
-[node name="name" type="LineEdit" parent="mobile/connect"]
-margin_left = 71.0
-margin_top = 90.0
-margin_right = 271.0
-margin_bottom = 140.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-custom_fonts/font = ExtResource( 8 )
-text = "HugeGameArt"
-caret_blink = true
-
-[node name="ip_label" type="Label" parent="mobile/connect"]
-margin_left = 55.0
-margin_top = 193.0
-margin_right = 255.0
-margin_bottom = 243.0
-size_flags_horizontal = 2
-size_flags_vertical = 0
-custom_fonts/font = ExtResource( 8 )
-text = "IP:"
-
-[node name="ip" type="LineEdit" parent="mobile/connect"]
-margin_left = 71.0
-margin_top = 249.0
-margin_right = 271.0
-margin_bottom = 299.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-custom_fonts/font = ExtResource( 8 )
-text = "127.0.0.1"
-caret_blink = true
-
-[node name="host" type="Button" parent="mobile/connect"]
-margin_left = 341.0
-margin_top = 81.0
-margin_right = 541.0
-margin_bottom = 131.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-custom_fonts/font = ExtResource( 8 )
-text = "Host"
-
-[node name="join" type="Button" parent="mobile/connect"]
-margin_left = 341.0
-margin_top = 240.0
-margin_right = 541.0
-margin_bottom = 290.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-custom_fonts/font = ExtResource( 8 )
-text = "Join"
-
-[node name="error_label" type="Label" parent="mobile/connect"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -557.0
-margin_top = 321.0
-margin_right = -27.0
-margin_bottom = 416.0
-size_flags_horizontal = 2
-size_flags_vertical = 0
-custom_colors/font_color = Color( 0.820312, 0.291595, 0.291595, 1 )
-align = 1
-
-[node name="error" type="AcceptDialog" parent="mobile/connect"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -440.0
-margin_top = 90.0
-margin_right = -133.0
-margin_bottom = 367.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-window_title = "Alert!"
-
-[node name="players" type="Panel" parent="mobile"]
-visible = false
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -407.0
-margin_bottom = 580.0
-theme = ExtResource( 7 )
-custom_styles/panel = SubResource( 4 )
-
-[node name="label" type="Label" parent="mobile/players"]
-margin_left = 49.0
-margin_top = 60.0
-margin_right = 282.0
-margin_bottom = 98.0
-size_flags_horizontal = 2
-size_flags_vertical = 0
-custom_fonts/font = SubResource( 5 )
-text = "Awaiting Players..."
-
-[node name="start" type="Button" parent="mobile/players"]
-margin_left = 151.0
-margin_top = 505.0
-margin_right = 276.0
-margin_bottom = 549.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-custom_fonts/font = ExtResource( 10 )
-text = "Start"
-
-[node name="list" type="ItemList" parent="mobile/players"]
-margin_left = 69.0
-margin_top = 101.0
-margin_right = 229.0
-margin_bottom = 316.0
-rect_scale = Vector2( 1.8, 1.8 )
-size_flags_horizontal = 2
-size_flags_vertical = 2
-theme = SubResource( 6 )
-auto_height = true
-
 [node name="car_showcase" type="Spatial" parent="."]
 editor/display_folded = true
 
 [node name="ground" type="RigidBody" parent="car_showcase"]
-physics_material_override = SubResource( 7 )
+physics_material_override = SubResource( 3 )
 gravity_scale = 0.0
 
 [node name="Circle" type="MeshInstance" parent="car_showcase/ground"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0166644, 0, 0.00910401 )
-mesh = SubResource( 8 )
+mesh = SubResource( 4 )
 material/0 = null
 
 [node name="Camera" type="Camera" parent="car_showcase"]
@@ -320,8 +185,8 @@ transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0
 current = true
 
 [node name="MeshInstance" type="MeshInstance" parent="car_showcase/Camera"]
-transform = Transform( 17.5, 0, 0, 0, 10, -4.47035e-08, 0, 4.47035e-07, 1, 0, 0, -6.98279 )
-mesh = SubResource( 10 )
+transform = Transform( 17.5, 0, 0, 0, 10, -4.47035e-008, 0, 4.47035e-007, 1, 0, 0, -6.98279 )
+mesh = SubResource( 6 )
 material/0 = null
 
 [node name="settings" type="Control" parent="."]
@@ -336,10 +201,9 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -128.0
 margin_bottom = 128.0
-texture_normal = ExtResource( 13 )
+texture_normal = ExtResource( 9 )
 
 [node name="UI" type="Control" parent="."]
-editor/display_folded = true
 margin_bottom = 1080.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI"]
@@ -351,14 +215,14 @@ alignment = 1
 show_behind_parent = true
 margin_right = 212.0
 margin_bottom = 66.0
-icon = ExtResource( 14 )
+icon = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer/track1"]
 margin_left = 5.0
 margin_top = 14.0
 margin_right = 204.0
 margin_bottom = 66.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.355469, 0, 0, 1 )
 text = "Beach"
 align = 1
@@ -367,14 +231,15 @@ align = 1
 margin_top = 70.0
 margin_right = 212.0
 margin_bottom = 136.0
-icon = ExtResource( 14 )
+size_flags_vertical = 4
+icon = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer/track2"]
-margin_left = 18.0
+margin_left = 5.0
 margin_top = 14.0
-margin_right = 189.0
-margin_bottom = 66.0
-custom_fonts/font = ExtResource( 15 )
+margin_right = 204.0
+margin_bottom = 90.0
+custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.355451, 0, 0, 1 )
 text = "City"
 align = 1
@@ -383,14 +248,15 @@ align = 1
 margin_top = 140.0
 margin_right = 212.0
 margin_bottom = 206.0
-icon = ExtResource( 14 )
+size_flags_vertical = 4
+icon = ExtResource( 10 )
 
 [node name="Label" type="Label" parent="UI/VBoxContainer/track3"]
-margin_left = 24.0
+margin_left = 5.0
 margin_top = 14.0
-margin_right = 187.0
-margin_bottom = 66.0
-custom_fonts/font = ExtResource( 15 )
+margin_right = 204.0
+margin_bottom = 90.0
+custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.355451, 0, 0, 1 )
 text = "Offroad"
 align = 1
@@ -399,14 +265,15 @@ align = 1
 margin_top = 210.0
 margin_right = 212.0
 margin_bottom = 276.0
-icon = ExtResource( 14 )
+size_flags_vertical = 4
+icon = ExtResource( 10 )
 
 [node name="Roads" type="Label" parent="UI/VBoxContainer/track4"]
-margin_left = 24.0
+margin_left = 5.0
 margin_top = 14.0
-margin_right = 187.0
-margin_bottom = 66.0
-custom_fonts/font = ExtResource( 15 )
+margin_right = 204.0
+margin_bottom = 90.0
+custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.355451, 0, 0, 1 )
 text = "Roads"
 align = 1
@@ -415,14 +282,15 @@ align = 1
 margin_top = 280.0
 margin_right = 212.0
 margin_bottom = 346.0
-icon = ExtResource( 14 )
+size_flags_vertical = 4
+icon = ExtResource( 10 )
 
 [node name="Stones" type="Label" parent="UI/VBoxContainer/track5"]
-margin_left = 24.0
+margin_left = 5.0
 margin_top = 14.0
-margin_right = 187.0
-margin_bottom = 66.0
-custom_fonts/font = ExtResource( 15 )
+margin_right = 204.0
+margin_bottom = 90.0
+custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0.355451, 0, 0, 1 )
 text = "Stones"
 align = 1
@@ -433,12 +301,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -968.158
-margin_top = -539.0
-margin_right = 949.842
-margin_bottom = 545.0
-theme = ExtResource( 7 )
-custom_styles/panel = SubResource( 11 )
+margin_left = -960.208
+margin_top = -541.65
+margin_right = 957.792
+margin_bottom = 542.35
+theme = ExtResource( 12 )
+custom_styles/panel = SubResource( 7 )
 
 [node name="playbtn" type="TextureButton" parent="play"]
 anchor_left = 0.5
@@ -449,34 +317,33 @@ margin_left = -64.0
 margin_top = -64.0
 margin_right = 64.0
 margin_bottom = 64.0
-texture_normal = ExtResource( 16 )
+texture_normal = ExtResource( 13 )
 
-[node name="car_load1" parent="." instance=ExtResource( 17 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0.5, -5 )
-physics_material_override = SubResource( 12 )
+[node name="car_load1" parent="." instance=ExtResource( 14 )]
+transform = Transform( -1, 0, -3.25841e-007, 0, 1, 0, 3.25841e-007, 0, -1, 0, 0.5, -5 )
+physics_material_override = SubResource( 8 )
 gravity_scale = 0.0
 force = 1500
 
-[node name="car_load2" parent="." instance=ExtResource( 18 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0.5, -10 )
-physics_material_override = SubResource( 13 )
+[node name="car_load2" parent="." instance=ExtResource( 15 )]
+transform = Transform( -1, 0, -3.25841e-007, 0, 1, 0, 3.25841e-007, 0, -1, 0, 0.5, -10 )
+physics_material_override = SubResource( 9 )
 gravity_scale = 0.0
 force = 1500
 
-[node name="car" parent="." instance=ExtResource( 19 )]
+[node name="car" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
-physics_material_override = SubResource( 14 )
+physics_material_override = SubResource( 10 )
 gravity_scale = 0.0
 angular_velocity = Vector3( 0, 0.5, 0 )
 force = 1500
 
 [node name="SettingsGUI" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 7 )
-script = ExtResource( 20 )
+theme = ExtResource( 12 )
+script = ExtResource( 17 )
 
 [node name="Panel" type="Panel" parent="SettingsGUI"]
 anchor_left = 0.5
@@ -487,14 +354,14 @@ margin_left = -512.0
 margin_top = -325.0
 margin_right = 512.0
 margin_bottom = 325.0
-theme = ExtResource( 7 )
-custom_styles/panel = SubResource( 15 )
+theme = ExtResource( 12 )
+custom_styles/panel = SubResource( 11 )
 
 [node name="WelcomeTitle" type="Label" parent="SettingsGUI/Panel"]
 margin_top = 16.0
 margin_right = 1024.0
 margin_bottom = 74.0
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 18 )
 text = "Solus Stunts"
 align = 1
 
@@ -503,7 +370,7 @@ margin_left = 32.0
 margin_top = 51.0
 margin_right = 676.0
 margin_bottom = 700.0
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 19 )
 text = "
 Please choose a preset suited to your hardware below:
 
@@ -530,7 +397,7 @@ custom_constants/separation = 24
 margin_top = 8.0
 margin_right = 173.0
 margin_bottom = 42.0
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 19 )
 text = "Graphics quality"
 
 [node name="graphics_preset" type="OptionButton" parent="SettingsGUI/Panel/GraphicsQuality"]
@@ -546,9 +413,9 @@ margin_left = 32.0
 margin_top = 237.0
 margin_right = 480.0
 margin_bottom = 349.0
-custom_styles/focus = SubResource( 16 )
-custom_styles/normal = SubResource( 16 )
-custom_fonts/normal_font = ExtResource( 8 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/normal_font = ExtResource( 19 )
 custom_constants/table_hseparation = 16
 custom_constants/line_separation = 2
 bbcode_enabled = true
@@ -558,9 +425,9 @@ margin_left = 512.0
 margin_top = 141.0
 margin_right = 992.0
 margin_bottom = 397.0
-custom_styles/focus = SubResource( 16 )
-custom_styles/normal = SubResource( 16 )
-custom_fonts/normal_font = ExtResource( 8 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/normal_font = ExtResource( 19 )
 custom_constants/table_hseparation = 16
 custom_constants/line_separation = 2
 bbcode_enabled = true
@@ -576,7 +443,7 @@ custom_constants/separation = 24
 margin_top = 1.0
 margin_right = 190.0
 margin_bottom = 35.0
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 19 )
 text = "Display resolution"
 
 [node name="display_resolution" type="OptionButton" parent="SettingsGUI/Panel/DisplayResolution"]
@@ -595,7 +462,7 @@ custom_constants/separation = 24
 margin_top = 1.0
 margin_right = 151.0
 margin_bottom = 35.0
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 19 )
 text = "Audio Volume"
 
 [node name="HSlider" type="HSlider" parent="SettingsGUI/Panel/Audio Volume"]
@@ -605,7 +472,7 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.0
-theme = ExtResource( 7 )
+theme = ExtResource( 12 )
 value = 75.0
 ticks_on_borders = true
 
@@ -635,25 +502,156 @@ margin_left = 29.0
 margin_top = 565.0
 margin_right = 349.0
 margin_bottom = 621.0
-custom_styles/focus = SubResource( 17 )
-custom_styles/normal = SubResource( 18 )
-custom_fonts/normal_font = ExtResource( 8 )
+custom_styles/focus = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
+custom_fonts/normal_font = ExtResource( 19 )
 bbcode_enabled = true
 bbcode_text = "[color=#DDFFFFFF]Press [color=#DDFFFF77][ESCAPE][/color] to toggle this menu.[/color]"
 text = "Press [ESCAPE] to toggle this menu."
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 21 )
+stream = ExtResource( 20 )
 volume_db = -10.0
 autoplay = true
+
+[node name="connect" type="Panel" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -592.0
+margin_bottom = 430.0
+theme = ExtResource( 12 )
+custom_styles/panel = SubResource( 15 )
+
+[node name="name_label" type="Label" parent="connect"]
+margin_left = 54.0
+margin_top = 46.0
+margin_right = 254.0
+margin_bottom = 96.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 19 )
+text = "Name:"
+
+[node name="name" type="LineEdit" parent="connect"]
+margin_left = 71.0
+margin_top = 90.0
+margin_right = 271.0
+margin_bottom = 140.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 19 )
+text = "HugeGameArt"
+caret_blink = true
+
+[node name="ip_label" type="Label" parent="connect"]
+margin_left = 55.0
+margin_top = 193.0
+margin_right = 255.0
+margin_bottom = 243.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 19 )
+text = "IP:"
+
+[node name="ip" type="LineEdit" parent="connect"]
+margin_left = 71.0
+margin_top = 249.0
+margin_right = 271.0
+margin_bottom = 299.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 19 )
+text = "127.0.0.1"
+caret_blink = true
+
+[node name="host" type="Button" parent="connect"]
+margin_left = 341.0
+margin_top = 81.0
+margin_right = 541.0
+margin_bottom = 131.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 19 )
+text = "Host"
+
+[node name="join" type="Button" parent="connect"]
+margin_left = 341.0
+margin_top = 240.0
+margin_right = 541.0
+margin_bottom = 290.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 19 )
+text = "Join"
+
+[node name="error_label" type="Label" parent="connect"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -557.0
+margin_top = 321.0
+margin_right = -27.0
+margin_bottom = 416.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_colors/font_color = Color( 0.820312, 0.291595, 0.291595, 1 )
+align = 1
+
+[node name="error" type="AcceptDialog" parent="connect"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -440.0
+margin_top = 90.0
+margin_right = -133.0
+margin_bottom = 367.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+window_title = "Alert!"
+
+[node name="players" type="Panel" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -407.0
+margin_bottom = 580.0
+theme = ExtResource( 12 )
+custom_styles/panel = SubResource( 16 )
+
+[node name="label" type="Label" parent="players"]
+margin_left = 49.0
+margin_top = 60.0
+margin_right = 282.0
+margin_bottom = 98.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 17 )
+text = "Awaiting Players..."
+
+[node name="start" type="Button" parent="players"]
+margin_left = 151.0
+margin_top = 505.0
+margin_right = 276.0
+margin_bottom = 549.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 18 )
+text = "Start"
+
+[node name="list" type="ItemList" parent="players"]
+margin_left = 69.0
+margin_top = 101.0
+margin_right = 229.0
+margin_bottom = 316.0
+rect_scale = Vector2( 1.8, 1.8 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = SubResource( 18 )
+auto_height = true
 
 [connection signal="pressed" from="mobile/steering/left" to="mobile" method="_on_left_pressed"]
 [connection signal="pressed" from="mobile/steering/right" to="mobile" method="_on_right_pressed"]
 [connection signal="pressed" from="mobile/speed/gas" to="mobile" method="_on_gas_pressed"]
 [connection signal="pressed" from="mobile/speed/brake" to="mobile" method="_on_brake_pressed"]
-[connection signal="pressed" from="mobile/connect/host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="mobile/connect/join" to="." method="_on_join_pressed"]
-[connection signal="pressed" from="mobile/players/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="settings/settings" to="." method="_on_settings_pressed"]
 [connection signal="mouse_entered" from="UI/VBoxContainer/track1" to="." method="_on_track1_mouse_entered"]
 [connection signal="pressed" from="UI/VBoxContainer/track1" to="." method="_on_track1_pressed"]
@@ -673,3 +671,6 @@ autoplay = true
 [connection signal="pressed" from="SettingsGUI/Panel/QuitButton" to="SettingsGUI" method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="SettingsGUI/Panel/ReturnButton" to="SettingsGUI" method="_on_ReturnButton_pressed"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
+[connection signal="pressed" from="connect/host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="connect/join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="players/start" to="." method="_on_start_pressed"]

@@ -5,6 +5,7 @@ var loadimg = preload("res://images/screen.jpg")
 var track1 = preload("res://tracks/1/track1.jpg")
 var track2 = preload("res://tracks/2/track2.jpg")
 var track3 = preload("res://tracks/3/track3.jpg")
+var begin = preload("res://images/car.jpg")
 var carimg = preload("res://images/car.jpg")
 var car
 var car2
@@ -32,6 +33,7 @@ func set_wheel_pos(c):
 
 func _ready():
 	init_connection()
+	update_background(begin, null)
 	remove_child(get_node("car_load1"))
 	remove_child(get_node("car_load2"))
 	set_process_input(true)
@@ -54,64 +56,65 @@ func init_connection():
 
 
 func invalid_name():
-	if (get_node("mobile/connect/name").text == ""):
-		get_node("mobile/connect/error_label").text="Invalid name!"
+	if (get_node("connect/name").text == ""):
+		get_node("connect/error_label").text="Invalid name!"
 		return true
 
 func _on_host_pressed():
 	if invalid_name():
 		return
-	get_node("mobile/connect").hide()
-	get_node("mobile/players").show()
-	get_node("mobile/connect/error_label").text=""
-	var player_name = get_node("mobile/connect/name").text
+	get_node("connect").hide()
+	get_node("players").show()
+	get_node("connect/error_label").text=""
+	var player_name = get_node("connect/name").text
 	gamestate.host_game(player_name)
 	refresh_lobby()
-
-
-
-func _on_connection_success():
-	get_node("mobile/connect").hide()
-	get_node("mobile/players").show()
-
-func _on_connection_failed():
-	get_node("mobile/connect/host").disabled=false
-	get_node("mobile/connect/join").disabled=false
-	get_node("mobile/connect/error_label").set_text("Connection failed.")
-
-func _on_game_ended():
-	get_node("mobile").show()
-	get_node("mobile/connect").show()
-	get_node("mobile/players").hide()
-	get_node("mobile/connect/host").disabled=false
-	get_node("mobile/connect/join").disabled=false
-
-func _on_game_error(errtxt):
-	get_node("mobile/connect/error").dialog_text=errtxt
-	get_node("mobile/connect/error").popup_centered_minsize()
-
-func refresh_lobby():
-	var players = gamestate.get_player_list()
-	players.sort()
-	get_node("mobile/players/list").clear()
-	get_node("mobile/players/list").add_item(gamestate.get_player_name() + " (You)")
-	for p in players:
-		get_node("mobile/players/list").add_item(p)
-	get_node("mobile/players/start").disabled=not get_tree().is_network_server()
 
 func _on_join_pressed():
 	gamestate.car_num2 = car_num2
 	if invalid_name():
 		return
-	var ip = get_node("mobile/connect/ip").text
+	var ip = get_node("connect/ip").text
 	if (not ip.is_valid_ip_address()):
-		get_node("mobile/connect/error_label").text="Invalid IPv4 address!"
+		get_node("connect/error_label").text="Invalid IPv4 address!"
 		return
-	get_node("mobile/connect/error_label").text=""
-	get_node("mobile/connect/host").disabled=true
-	get_node("mobile/connect/join").disabled=true
-	var player_name = get_node("mobile/connect/name").text
+	get_node("connect/error_label").text=""
+	get_node("connect/host").disabled=true
+	get_node("connect/join").disabled=true
+	var player_name = get_node("connect/name").text
 	gamestate.join_game(ip, player_name)
+
+func _on_connection_success():
+	get_node("connect").hide()
+	get_node("players").show()
+
+func _on_connection_failed():
+	get_node("connect/host").disabled=false
+	get_node("mconnect/join").disabled=false
+	get_node("connect/error_label").set_text("Connection failed.")
+
+func _on_game_ended():
+	get_node("connect").show()
+	get_node("players").hide()
+	get_node("connect/host").disabled=false
+	get_node("connect/join").disabled=false
+
+func _on_game_error(errtxt):
+	get_node("connect/error").dialog_text=errtxt
+	get_node("connect/error").popup_centered_minsize()
+
+func refresh_lobby():
+	var players = gamestate.get_player_list()
+	for pn in players:
+		if pn == gamestate.get_player_name():
+			get_tree().quit()
+	players.sort()
+	get_node("players/list").clear()
+	get_node("players/list").add_item(gamestate.get_player_name() + " (You)")
+	for p in players:
+		get_node("players/list").add_item(p)
+	get_node("players/start").disabled=not get_tree().is_network_server()
+
 
 func _input(event):
 	if Input.is_action_pressed("ui_right") and not event.is_echo():
@@ -124,8 +127,6 @@ func _input(event):
 		settings.visible = !settings.visible
 	if event.is_action_pressed("toggle_fullscreen"):
 		OS.set_window_fullscreen(!OS.is_window_fullscreen())
-	if event.is_action_pressed("return"):
-		get_tree().change_scene("res://lobby.tscn")
 
 func right():
 	remove_child(get_node("car"))
@@ -176,7 +177,7 @@ func _on_start_pressed():
 
 
 func multiplayer_dialog():
-	get_node("mobile/connect").show()
+	get_node("connect").show()
 	
 func _on_settings_pressed():
 	get_tree().get_root().get_node("lobby3D/SettingsGUI").visible = true

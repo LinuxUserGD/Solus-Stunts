@@ -36,17 +36,24 @@ func _on_goal5_body_entered(body):
 	nextround(body)
 
 func nextround(body):
-	if str(body).begins_with("[VehicleBody"):
-		if ROUND < 3:
-			ROUND += 1
-			$"/root/lobby/world/round".text="round " + str(ROUND) + " of 3"
-			if ROUND == 2:
-				$"/root/lobby/world/countdown/audio".stream = round2
-			if ROUND == 3:
-				$"/root/lobby/world/countdown/audio".stream = finalround
-				
-			$"/root/lobby/world/countdown/audio".play()
-		else:
-			get_tree().get_root().get_node("lobby/world").audioend()
-			$"/root/lobby/world/countdown/audio".stream = winner
-			$"/root/lobby/world/countdown/audio".play()
+	var car =  get_tree().get_root().get_node("lobby/world/vehicles/" + str(get_tree().get_network_unique_id()))
+	var id = car.get_instance_id()
+	var type = car.get_class()
+	if str(body) == "[" + type + ":" + str(id) + "]":
+		wahr()
+	
+
+func wahr():
+	if ROUND < 3:
+		ROUND += 1
+		$"/root/lobby/world/round".text="round " + str(ROUND) + " of 3"
+		if ROUND == 2:
+			$"/root/lobby/world/countdown/audio".stream = round2
+		if ROUND == 3:
+			$"/root/lobby/world/countdown/audio".stream = finalround
+			
+		$"/root/lobby/world/countdown/audio".play()
+	else:
+		get_tree().get_root().get_node("lobby/world").audioend()
+		$"/root/lobby/world/countdown/audio".stream = winner
+		$"/root/lobby/world/countdown/audio".play()

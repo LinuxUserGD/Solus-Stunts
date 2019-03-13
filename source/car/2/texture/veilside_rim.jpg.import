@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/veilside_rim.jpg-d1c10d4429d93965f1064fbdf940e0e5.s3tc.stex"
 path.etc2="res://.import/veilside_rim.jpg-d1c10d4429d93965f1064fbdf940e0e5.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
 
 [deps]
 

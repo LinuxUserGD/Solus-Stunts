@@ -119,7 +119,7 @@ func _on_ConfirmButton_pressed():
 	visible = false
 
 func _on_QuitButton_pressed():
-	get_tree().quit()
+	gamestate.end_game()
 
 func _on_HSlider_value_changed( value ):
 	$"/root/lobby/AudioStreamPlayer".volume_db = -50 + value/2

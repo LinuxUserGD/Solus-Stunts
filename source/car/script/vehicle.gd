@@ -9,80 +9,79 @@ slave var b = 0
 slave var s_a = 0
 slave var tr = Vector3()
 slave var ro = Vector3()
-
+var r
 export var force = 1500
 var braking_force_mult = 4
 var steer_angle = 0
 var steer_target = 0
-var speed
+var speed 
 var previous
 var reverse
 var time = 0
-var loop_1 = load("res://assets/sound/loop-1.wav")
-var loop_2 = load("res://assets/sound/loop-2.wav")
-var loop_3 = load("res://assets/sound/loop-3.wav")
-var loop_4 = load("res://assets/sound/loop-4.wav")
-var loop_5 = load("res://assets/sound/loop-5.wav")
+var loop_1 = load("res://assets/sound/loop_1.wav")
+var loop_2 = load("res://assets/sound/loop_2.wav")
+var loop_3 = load("res://assets/sound/loop_3.wav")
+var loop_4 = load("res://assets/sound/loop_4.wav")
+var loop_5 = load("res://assets/sound/loop_5.wav")
 var showcase=false
 func _physics_process(_delta):
-	time += _delta
-	speed = get_linear_velocity().length()
-	if (speed > 35):
-		if previous != 5:
-			get_node("AudioStreamPlayer").stream = loop_5
-			get_node("AudioStreamPlayer").play()
-		previous = 5
-		STEER_LIMIT = 0.2
-		STEER_SPEED = 0.5
-	elif (speed > 28):
-		if previous != 4:
-			get_node("AudioStreamPlayer").stream = loop_4
-			get_node("AudioStreamPlayer").play()
-		previous = 4
-		STEER_LIMIT = 0.4
-		STEER_SPEED = 0.5
-	elif (speed > 15):
-		if previous != 3:
-			get_node("AudioStreamPlayer").stream = loop_3
-			get_node("AudioStreamPlayer").play()
-		previous = 3
-		STEER_LIMIT = 0.5
-		STEER_SPEED = 0.5
-	elif (speed > 5):
-		if previous != 2:
-			get_node("AudioStreamPlayer").stream = loop_2
-			get_node("AudioStreamPlayer").play()
-		previous = 2
-		STEER_LIMIT = 0.75
-		STEER_SPEED = 0.5
-	else:
-		if previous != 1:
-			get_node("AudioStreamPlayer").stream = loop_1
-			get_node("AudioStreamPlayer").play()
-		previous = 1
-		STEER_LIMIT = 1
-		STEER_SPEED = 1
-	
-	get_node("info/fps").set_text(str(Engine.get_frames_per_second()) + " fps")
-	get_node("info/v").set_text(str(round(speed*3.6)) + " km/h")
-	var minutes = int(time/60)
-	var seconds = int(time) - minutes * 60
-	if minutes == 0:
-		get_node("info/time").set_text(str(seconds) + "s")
-	else:
-		get_node("info/time").set_text(str(minutes) + "m " + str(seconds) + "s")
-	
 	if (is_network_master()):
+		time += _delta
+		speed = get_linear_velocity().length()
+		if (speed > 35):
+			if previous != 5:
+				get_node("AudioStreamPlayer").stream = loop_5
+				get_node("AudioStreamPlayer").play()
+			previous = 5
+			STEER_LIMIT = 0.2
+			STEER_SPEED = 0.5
+		elif (speed > 28):
+			if previous != 4:
+				get_node("AudioStreamPlayer").stream = loop_4
+				get_node("AudioStreamPlayer").play()
+			previous = 4
+			STEER_LIMIT = 0.4
+			STEER_SPEED = 0.5
+		elif (speed > 15):
+			if previous != 3:
+				get_node("AudioStreamPlayer").stream = loop_3
+				get_node("AudioStreamPlayer").play()
+			previous = 3
+			STEER_LIMIT = 0.5
+			STEER_SPEED = 0.5
+		elif (speed > 5):
+			if previous != 2:
+				get_node("AudioStreamPlayer").stream = loop_2
+				get_node("AudioStreamPlayer").play()
+			previous = 2
+			STEER_LIMIT = 0.75
+			STEER_SPEED = 0.5
+		else:
+			if previous != 1:
+				get_node("AudioStreamPlayer").stream = loop_1
+				get_node("AudioStreamPlayer").play()
+				print("hello")
+			previous = 1
+			STEER_LIMIT = 1
+			STEER_SPEED = 1
 		get_node("cambase/Camera").make_current()
+		get_node("info/fps").set_text(str(Engine.get_frames_per_second()) + " fps")
+		get_node("info/v").set_text(str(round(speed*3.6)) + " km/h")
+		var minutes = int(time/60)
+		var seconds = int(time) - minutes * 60
+		if minutes == 0:
+			get_node("info/time").set_text(str(seconds) + "s")
+		else:
+			get_node("info/time").set_text(str(minutes) + "m " + str(seconds) + "s")
 	
-		if Input.is_action_pressed("ui_left"):
+		if Input.is_action_pressed("ui_left") or r.get_node("lobby/mobile/steering/left").is_pressed():
 			steer_target = STEER_LIMIT
-		elif Input.is_action_pressed("ui_right"):
+		elif Input.is_action_pressed("ui_right") or r.get_node("lobby/mobile/steering/right").is_pressed():
 			steer_target = -STEER_LIMIT
 		else:
 			steer_target = 0
 		
-		if Input.is_action_pressed("ui_up"):
+		if Input.is_action_pressed("ui_up") or r.get_node("lobby/mobile/speed/gas").is_pressed():
 			if (speed < MAX_SPEED):
 				set_engine_force(force)
 			else:
@@ -93,7 +92,7 @@ func _physics_process(_delta):
 			else:
 				set_engine_force(0)
 		
-		if Input.is_action_pressed("ui_down"):
+		if Input.is_action_pressed("ui_down") or r.get_node("lobby/mobile/speed/brake").is_pressed():
 			if (speed > 5):
 				set_brake(1)
 				set_engine_force(-force*braking_force_mult)
@@ -152,6 +151,7 @@ func update():
 
 
 func _ready():
+	r = get_tree().get_root()
 	set_physics_process(true)
 	if name=="car":
 		set_physics_process(false)

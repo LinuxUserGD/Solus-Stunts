@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/BWheel_metallicRoughness.jpg-54c69572c0ea8a20170c812f1abf6680.s3tc.stex"
 path.etc2="res://.import/BWheel_metallicRoughness.jpg-54c69572c0ea8a20170c812f1abf6680.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
 
 [deps]
 

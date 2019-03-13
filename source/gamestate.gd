@@ -58,17 +58,14 @@ remote func unregister_player(id):
 
 remote func pre_start_game(tr, car_num, car_num2):
 	$"/root/lobby".set_process_input(false)
+	$"/root/lobby/mobile".set_process_input(true)
 	var world = load("res://world.tscn").instance()
-	get_tree().get_root().get_node("lobby/mobile").hide()
+	get_tree().get_root().get_node("lobby/players").hide()
 	$"/root/lobby/mobile/speed".show()
 	$"/root/lobby/play".queue_free()
 	$"/root/lobby/UI".queue_free()
 	$"/root/lobby/car_showcase".queue_free()
 	$"/root/lobby/car".queue_free()
-	var music = load("res://music/Winning the Race.ogg")
-	get_tree().get_root().get_node("lobby/AudioStreamPlayer").stream = music
-	get_tree().get_root().get_node("lobby/AudioStreamPlayer").play()
-	get_tree().get_root().get_node("lobby/mobile").hide()
 	get_tree().get_root().get_node("lobby").add_child(world)
 	var newtrack
 
@@ -93,17 +90,19 @@ remote func pre_start_game(tr, car_num, car_num2):
 		newtrack = load("res://tracks/5/track5.tscn").instance()
 		set_background(load("res://hdri/syferfontein_6d_clear_2k.hdr"))
 		$"/root/lobby/AudioStreamPlayer".stream = load("res://assets/music/Lively Meadow.ogg")
-
-	if tr == 1:
-		newtrack = load("res://tracks/1/track1.tscn").instance()
-	if tr == 2:
-		newtrack = load("res://tracks/2/track2.tscn").instance()
-	if tr == 3:
-		newtrack = load("res://tracks/3/track3.tscn").instance()
-
-	world.get_node("track").add_child(newtrack)
 	
-	var car_scene = load("res://car/1/car.tscn")
+	get_tree().get_root().get_node("lobby/AudioStreamPlayer").play()
+	
+	world.get_node("track").add_child(newtrack)
+	var car_scene
+	if car_num==1:
+		car_scene = load("res://car/1/car.tscn")
+	if car_num==2:
+		car_scene = load("res://car/2/car2.tscn")
+	if car_num==3:
+		car_scene = load("res://car/3/car3.tscn")
+	if car_num==4:
+		car_scene = load("res://car/4/car4.tscn")
 		
 	var car = car_scene.instance()
 	car.set_name(str(get_tree().get_network_unique_id()))
@@ -126,6 +125,7 @@ remote func pre_start_game(tr, car_num, car_num2):
 		car.set_network_master(pn)
 		car.set_player_name(players[pn])
 		world.get_node("vehicles").add_child(car)
+		print(car.get_path())
 		
 
 	if (not get_tree().is_network_server()):
@@ -175,11 +175,10 @@ func begin_game():
 	pre_start_game(track, car_num, car_num2)
 
 func end_game():
-	if (has_node("/root/world3D/world2")):
-		get_node("/root/world3D/world2").queue_free()
 	emit_signal("game_ended")
 	players.clear()
 	get_tree().set_network_peer(null)
+	get_tree().change_scene("res://lobby.tscn")
 
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")

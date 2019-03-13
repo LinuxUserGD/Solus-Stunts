@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/table_mountain_1_2k.hdr-4d129366ce5e8cde7d9a045b9d2f14a3.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

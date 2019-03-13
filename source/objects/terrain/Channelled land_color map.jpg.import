@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Channelled land_color map.jpg-22f86bd71f0516a9963272856b8579fa.s3tc.stex"
 path.etc2="res://.import/Channelled land_color map.jpg-22f86bd71f0516a9963272856b8579fa.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
 
 [deps]
 

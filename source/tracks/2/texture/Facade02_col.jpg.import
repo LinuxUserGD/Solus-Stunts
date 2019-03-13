@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Facade02_col.jpg-d61db9c7dea87072043ba375dba6ff58.s3tc.stex"
 path.etc2="res://.import/Facade02_col.jpg-d61db9c7dea87072043ba375dba6ff58.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
 
 [deps]
 

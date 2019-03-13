@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/FWheel_normal.jpg-72f01bc412bc59cf117654191043be9d.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

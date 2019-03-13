@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Cockpit_baseColor.jpg-a0639238cd232a68642bf6336f906623.s3tc.stex"
 path.etc2="res://.import/Cockpit_baseColor.jpg-a0639238cd232a68642bf6336f906623.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
 
 [deps]
 

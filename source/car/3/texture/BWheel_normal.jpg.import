@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/BWheel_normal.jpg-869f42a0017b62cd9202161db46b9d70.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

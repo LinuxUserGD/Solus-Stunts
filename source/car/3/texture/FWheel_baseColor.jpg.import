@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/FWheel_baseColor.jpg-da7e3ed65a8cd67b8ea4db105d5bf44d.s3tc.stex"
 path.etc2="res://.import/FWheel_baseColor.jpg-da7e3ed65a8cd67b8ea4db105d5bf44d.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
 
 [deps]
 

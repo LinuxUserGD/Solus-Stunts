@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/cape_hill_2k.hdr-4ca265a8547e13d6da1a396804db3d0e.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
