@@ -1,0 +1,6 @@
+[submodule "website"]
+	path = website
+	url = https://github.com/HugeGameArtGD/hugegameartgd.github.io
+[submodule "assets"]
+	path = source/assets
+	url = https://github.com/HugeGameArtGD/assets
