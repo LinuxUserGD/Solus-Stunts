@@ -157,6 +157,8 @@ func init(c):
 	c.translation.z = 0
 	set_wheel_pos(c)
 	add_child(c)
+	if c.has_node("cambase/Camera/World"):
+		c.get_node("cambase/Camera/World").queue_free()
 	
 func left():
 	remove_child(get_node("car"))

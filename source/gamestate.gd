@@ -105,16 +105,7 @@ remote func pre_start_game(tr, car_num, car_num2):
 	car.set_player_name(player_name)
 	world.get_node("vehicles").add_child(car)
 	world.car = car
-	#var camera = load("res://anaglyph/World.tscn").instance()
-	#car.get_node("cambase/Camera").add_child(camera)
 	$"/root/lobby/Viewport".queue_free()
-	#var newvp = load("res://Viewport.tscn").instance()
-	#newvp.set_name("Viewport2")
-	#car.add_child(newvp)
-	#var vp = ViewportTexture.new()
-	#print(car.get_node("Viewport2").get_path())
-	#vp.viewport_path = "Viewport2"
-	#car.get_node("cambase/Camera/World/Player/CanvasLayer/AnaglyphCamera/UI").texture = vp
 	
 	for pn in players:
 		var car_scene2

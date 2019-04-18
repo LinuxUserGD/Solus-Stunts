@@ -14,8 +14,8 @@
 [ext_resource path="res://default.tres" type="Theme" id=12]
 [ext_resource path="res://assets/ui/32.png" type="Texture" id=13]
 [ext_resource path="res://anaglyph/brightness.shader" type="Shader" id=14]
-[ext_resource path="res://car/1/car.tscn" type="PackedScene" id=15]
-[ext_resource path="res://car/3/car3.tscn" type="PackedScene" id=16]
+[ext_resource path="res://car/3/car3.tscn" type="PackedScene" id=15]
+[ext_resource path="res://car/1/car.tscn" type="PackedScene" id=16]
 [ext_resource path="res://settings/settings.gd" type="Script" id=17]
 [ext_resource path="res://font/font_list.tres" type="DynamicFont" id=18]
 [ext_resource path="res://font/font_mp.tres" type="DynamicFont" id=19]
@@ -127,11 +127,11 @@ func screen_resized():
 #	pass
 "
 
-[sub_resource type="ViewportTexture" id=16]
-viewport_path = NodePath("Player/Viewports/CenterViewport")
-
 [sub_resource type="ViewportTexture" id=17]
 viewport_path = NodePath("Viewport")
+
+[sub_resource type="ViewportTexture" id=16]
+viewport_path = NodePath("World/Player/Viewports/CenterViewport")
 
 [sub_resource type="ViewportTexture" id=18]
 viewport_path = NodePath("World/Player/Viewports/LeftViewport")
@@ -665,13 +665,13 @@ physics_material_override = SubResource( 12 )
 gravity_scale = 0.0
 force = 1500
 
-[node name="car_load2" parent="." instance=ExtResource( 16 )]
+[node name="car_load2" parent="." instance=ExtResource( 15 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0.5, -10 )
 physics_material_override = SubResource( 13 )
 gravity_scale = 0.0
 force = 1500
 
-[node name="car" parent="." instance=ExtResource( 15 )]
+[node name="car" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 physics_material_override = SubResource( 14 )
 gravity_scale = 0.0
@@ -729,26 +729,25 @@ remote_path = NodePath("../../Viewports/RightViewport/Camera")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="World/Player"]
 
-[node name="MainCamera" type="Control" parent="World/Player/CanvasLayer"]
+[node name="Cameras" type="Control" parent="World/Player/CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="TextureRect" type="TextureRect" parent="World/Player/CanvasLayer/MainCamera"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = SubResource( 16 )
-
-[node name="AnaglyphCamera" type="Control" parent="World/Player/CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="UI" type="TextureRect" parent="World/Player/CanvasLayer/AnaglyphCamera"]
+[node name="UI" type="TextureRect" parent="World/Player/CanvasLayer/Cameras"]
 margin_right = 1920.0
 margin_bottom = 1080.0
 texture = SubResource( 17 )
 expand = true
 
-[node name="LeftView" type="TextureRect" parent="World/Player/CanvasLayer/AnaglyphCamera"]
+[node name="MainView" type="TextureRect" parent="World/Player/CanvasLayer/Cameras"]
+visible = false
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 16 )
+expand = true
+
+[node name="LeftView" type="TextureRect" parent="World/Player/CanvasLayer/Cameras"]
 modulate = Color( 1, 0, 0, 1 )
 show_behind_parent = true
 anchor_right = 1.0
@@ -756,7 +755,7 @@ anchor_bottom = 1.0
 texture = SubResource( 18 )
 expand = true
 
-[node name="RightView" type="TextureRect" parent="World/Player/CanvasLayer/AnaglyphCamera"]
+[node name="RightView" type="TextureRect" parent="World/Player/CanvasLayer/Cameras"]
 modulate = Color( 0, 1, 1, 0.501961 )
 show_behind_parent = true
 anchor_right = 1.0
@@ -764,7 +763,7 @@ anchor_bottom = 1.0
 texture = SubResource( 19 )
 expand = true
 
-[node name="ColorRect" type="ColorRect" parent="World/Player/CanvasLayer/AnaglyphCamera"]
+[node name="ColorRect" type="ColorRect" parent="World/Player/CanvasLayer/Cameras"]
 show_behind_parent = true
 material = SubResource( 20 )
 anchor_right = 1.0
