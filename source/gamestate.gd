@@ -1,25 +1,18 @@
 extends Node
-var rot = 0.0
 const DEFAULT_PORT = 10567
 const MAX_PEERS = 12
 var player_name = ""
 var track = 0
-var index = 0
 var players = {}
 
 var car_num=1
 var car_num2=1
-
-
 
 signal player_list_changed()
 signal connection_failed()
 signal connection_succeeded()
 signal game_ended()
 signal game_error(what)
-
-func _player_connected(id):
-	pass
 
 func _player_disconnected(id):
 	if (get_tree().is_network_server()):
@@ -57,41 +50,33 @@ remote func unregister_player(id):
 	emit_signal("player_list_changed")
 
 remote func pre_start_game(tr, car_num, car_num2):
-	$"/root/lobby".set_process_input(false)
-	$"/root/lobby/mobile".set_process_input(true)
 	var world = load("res://world.tscn").instance()
-	get_tree().get_root().get_node("lobby/players").hide()
-	$"/root/lobby/mobile/speed".show()
-	$"/root/lobby/play".queue_free()
-	$"/root/lobby/UI".queue_free()
-	$"/root/lobby/car_showcase".queue_free()
-	$"/root/lobby/car".queue_free()
 	get_tree().get_root().get_node("lobby").add_child(world)
 	var newtrack
 
 	if tr==1:
 		newtrack = load("res://tracks/1/track1.tscn").instance()
 		set_background(load("res://hdri/umhlanga_sunrise_2k.hdr"))
-		$"/root/lobby/AudioStreamPlayer".stream = load("res://assets/music/Theme of Agrual.ogg")
+		$"/root/lobby/Viewport/AudioStreamPlayer".stream = load("res://assets/music/Theme of Agrual.ogg")
 	
 	if tr==2:
 		newtrack = load("res://tracks/2/track2.tscn").instance()
 		set_background(load("res://hdri/moonless_golf_2k.hdr"))
-		$"/root/lobby/AudioStreamPlayer".stream = load("res://assets/music/Tactical Pursuit.ogg")
+		$"/root/lobby/Viewport/AudioStreamPlayer".stream = load("res://assets/music/Tactical Pursuit.ogg")
 	if tr==3:
 		newtrack = load("res://tracks/3/track3.tscn").instance()
 		set_background(load("res://hdri/cape_hill_2k.hdr"))
-		$"/root/lobby/AudioStreamPlayer".stream = load("res://assets/music/Pleasant Creek.ogg")
+		$"/root/lobby/Viewport/AudioStreamPlayer".stream = load("res://assets/music/Pleasant Creek.ogg")
 	if tr==4:
 		newtrack = load("res://tracks/4/track4.tscn").instance()
 		set_background(load("res://hdri/spruit_sunrise_2k.hdr"))
-		$"/root/lobby/AudioStreamPlayer".stream = load("res://assets/music/Pizza Dungeon.ogg")
+		$"/root/lobby/Viewport/AudioStreamPlayer".stream = load("res://assets/music/Pizza Dungeon.ogg")
 	if tr==5:
 		newtrack = load("res://tracks/5/track5.tscn").instance()
 		set_background(load("res://hdri/syferfontein_6d_clear_2k.hdr"))
-		$"/root/lobby/AudioStreamPlayer".stream = load("res://assets/music/Lively Meadow.ogg")
+		$"/root/lobby/Viewport/AudioStreamPlayer".stream = load("res://assets/music/Lively Meadow.ogg")
 	
-	get_tree().get_root().get_node("lobby/AudioStreamPlayer").play()
+	get_tree().get_root().get_node("lobby/Viewport/AudioStreamPlayer").play()
 	
 	world.get_node("track").add_child(newtrack)
 	var car_scene
@@ -110,6 +95,10 @@ remote func pre_start_game(tr, car_num, car_num2):
 	car.set_player_name(player_name)
 	world.get_node("vehicles").add_child(car)
 	world.car = car
+	var camera = load("res://anaglyph/World.tscn").instance()
+	car.get_node("cambase/Camera").add_child(camera)
+	car.get_node("cambase/Camera/World/car_showcase").queue_free()
+	
 	for pn in players:
 		var car_scene2
 		if car_num2==1:
@@ -188,4 +177,4 @@ func _ready():
 	get_tree().connect("server_disconnected", self, "_server_disconnected")
 
 func set_background(background):
-	$"/root/lobby".environment.background_sky.panorama = background
+	$"/root/lobby/WorldEnvironment".environment.background_sky.panorama = background

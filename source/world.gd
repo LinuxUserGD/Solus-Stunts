@@ -9,8 +9,8 @@ var m1 = preload("res://assets/voice/1.ogg")
 var begin = preload("res://assets/voice/begin.ogg")
 var round1 = preload("res://assets/voice/round_1.ogg")
 var num = 4
-var car = null
 var endaudio = false
+var car = null
 func _ready():
 	get_node("countdown/Timer").start()
 
@@ -18,10 +18,8 @@ func set_text():
 	print("ready")
 
 func _input(event):
-	if event.is_action_pressed("return"):
-		get_tree().change_scene("res://lobby.tscn")
 	if event.is_action_pressed("toggle_menu"):
-		var settings = get_node("/root/lobby/SettingsGUI")
+		var settings = get_node("/root/lobby/Viewport/SettingsGUI")
 		settings.visible = !settings.visible
 	if event.is_action_pressed("toggle_fullscreen"):
 		OS.set_window_fullscreen(!OS.is_window_fullscreen())

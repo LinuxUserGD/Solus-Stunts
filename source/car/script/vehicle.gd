@@ -4,11 +4,11 @@ var MAX_SPEED = 50
 var STEER_SPEED = 1
 var STEER_LIMIT = 0.4
 
-slave var f = 0
-slave var b = 0
-slave var s_a = 0
-slave var tr = Vector3()
-slave var ro = Vector3()
+puppet var f = 0
+puppet var b = 0
+puppet var s_a = 0
+puppet var tr = Vector3()
+puppet var ro = Vector3()
 var r
 export var force = 1500
 var braking_force_mult = 4
@@ -23,7 +23,6 @@ var loop_2 = load("res://assets/sound/loop_2.wav")
 var loop_3 = load("res://assets/sound/loop_3.wav")
 var loop_4 = load("res://assets/sound/loop_4.wav")
 var loop_5 = load("res://assets/sound/loop_5.wav")
-var showcase=false
 func _physics_process(_delta):
 	if (is_network_master()):
 		time += _delta
@@ -60,7 +59,6 @@ func _physics_process(_delta):
 			if previous != 1:
 				get_node("AudioStreamPlayer").stream = loop_1
 				get_node("AudioStreamPlayer").play()
-				print("hello")
 			previous = 1
 			STEER_LIMIT = 1
 			STEER_SPEED = 1
@@ -74,14 +72,14 @@ func _physics_process(_delta):
 		else:
 			get_node("info/time").set_text(str(minutes) + "m " + str(seconds) + "s")
 	
-		if Input.is_action_pressed("ui_left") or r.get_node("lobby/mobile/steering/left").is_pressed():
+		if Input.is_action_pressed("ui_left") or r.get_node("lobby/Viewport/mobile/steering/left").is_pressed():
 			steer_target = STEER_LIMIT
-		elif Input.is_action_pressed("ui_right") or r.get_node("lobby/mobile/steering/right").is_pressed():
+		elif Input.is_action_pressed("ui_right") or r.get_node("lobby/Viewport/mobile/steering/right").is_pressed():
 			steer_target = -STEER_LIMIT
 		else:
 			steer_target = 0
 		
-		if Input.is_action_pressed("ui_up") or r.get_node("lobby/mobile/speed/gas").is_pressed():
+		if Input.is_action_pressed("ui_up") or r.get_node("lobby/Viewport/mobile/speed/gas").is_pressed():
 			if (speed < MAX_SPEED):
 				set_engine_force(force)
 			else:
@@ -92,7 +90,7 @@ func _physics_process(_delta):
 			else:
 				set_engine_force(0)
 		
-		if Input.is_action_pressed("ui_down") or r.get_node("lobby/mobile/speed/brake").is_pressed():
+		if Input.is_action_pressed("ui_down") or r.get_node("lobby/Viewport/mobile/speed/brake").is_pressed():
 			if (speed > 5):
 				set_brake(1)
 				set_engine_force(-force*braking_force_mult)

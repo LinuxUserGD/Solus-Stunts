@@ -90,7 +90,7 @@ const presets = [
 	},
 ]
 
-onready var environment = $"/root/lobby".get_environment()
+onready var environment = $"/root/lobby/WorldEnvironment".get_environment()
 onready var GraphicsBlurb = $"Panel/GraphicsBlurb"
 onready var GraphicsInfo = $"Panel/GraphicsInfo"
 onready var ResolutionDropdown = $"Panel/DisplayResolution/display_resolution"
@@ -119,7 +119,7 @@ func _on_ConfirmButton_pressed():
 	visible = false
 
 func _on_QuitButton_pressed():
-	gamestate.end_game()
+	get_tree().quit()
 
 func _on_HSlider_value_changed( value ):
 	$"/root/lobby/AudioStreamPlayer".volume_db = -50 + value/2
@@ -154,4 +154,4 @@ func _on_graphics_preset_item_selected( ID ):
 
 
 func _on_ReturnButton_pressed():
-	get_tree().quit()
+	gamestate.end_game()

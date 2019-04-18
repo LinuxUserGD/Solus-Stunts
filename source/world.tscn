@@ -58,6 +58,5 @@ margin_top = 20.0
 margin_right = -166.0
 margin_bottom = 34.0
 text = "round 1 of 3"
-
 [connection signal="timeout" from="countdown/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="finished" from="countdown/audio" to="." method="_on_audio_finished"]

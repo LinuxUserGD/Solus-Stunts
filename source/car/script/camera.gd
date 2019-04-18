@@ -12,6 +12,10 @@ var origin
 var target_orig
 
 func _physics_process(_delta):
+	if has_node("World"):
+		print("hello")
+		get_node("World/Player").translation = translation
+		get_node("World/Player").rotation = rotation
 	if (not debug):
 		var target = get_parent().get_global_transform().origin
 		var pos = get_global_transform().origin

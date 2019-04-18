@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Exhaust_metallicRoughness.jpg-5cf0c8be3375e4b39c2d1e99d111e71c.s3tc.stex"
 path.etc2="res://.import/Exhaust_metallicRoughness.jpg-5cf0c8be3375e4b39c2d1e99d111e71c.etc2.stex"
+path.etc="res://.import/Exhaust_metallicRoughness.jpg-5cf0c8be3375e4b39c2d1e99d111e71c.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://car/3/texture/Exhaust_metallicRoughness.jpg"
-dest_files=[ "res://.import/Exhaust_metallicRoughness.jpg-5cf0c8be3375e4b39c2d1e99d111e71c.s3tc.stex", "res://.import/Exhaust_metallicRoughness.jpg-5cf0c8be3375e4b39c2d1e99d111e71c.etc2.stex" ]
+dest_files=[ "res://.import/Exhaust_metallicRoughness.jpg-5cf0c8be3375e4b39c2d1e99d111e71c.s3tc.stex", "res://.import/Exhaust_metallicRoughness.jpg-5cf0c8be3375e4b39c2d1e99d111e71c.etc2.stex", "res://.import/Exhaust_metallicRoughness.jpg-5cf0c8be3375e4b39c2d1e99d111e71c.etc.stex" ]
 
 [params]
 

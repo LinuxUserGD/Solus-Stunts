@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/FWheel_metallicRoughness.jpg-bdf10633bd92f46aa7c1b657d9abb2fb.s3tc.stex"
 path.etc2="res://.import/FWheel_metallicRoughness.jpg-bdf10633bd92f46aa7c1b657d9abb2fb.etc2.stex"
+path.etc="res://.import/FWheel_metallicRoughness.jpg-bdf10633bd92f46aa7c1b657d9abb2fb.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://car/3/texture/FWheel_metallicRoughness.jpg"
-dest_files=[ "res://.import/FWheel_metallicRoughness.jpg-bdf10633bd92f46aa7c1b657d9abb2fb.s3tc.stex", "res://.import/FWheel_metallicRoughness.jpg-bdf10633bd92f46aa7c1b657d9abb2fb.etc2.stex" ]
+dest_files=[ "res://.import/FWheel_metallicRoughness.jpg-bdf10633bd92f46aa7c1b657d9abb2fb.s3tc.stex", "res://.import/FWheel_metallicRoughness.jpg-bdf10633bd92f46aa7c1b657d9abb2fb.etc2.stex", "res://.import/FWheel_metallicRoughness.jpg-bdf10633bd92f46aa7c1b657d9abb2fb.etc.stex" ]
 
 [params]
 

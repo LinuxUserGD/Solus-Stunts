@@ -1,0 +1,175 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://images/car.jpg" type="Texture" id=1]
+[ext_resource path="res://car/showcase/material/surface.material" type="Material" id=2]
+[ext_resource path="res://anaglyph/brightness.shader" type="Shader" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Spatial
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	get_tree().connect(\"screen_resized\",self,\"screen_resized\")
+	screen_resized()
+	pass # Replace with function body.
+
+func screen_resized():
+	$\"Viewports/CenterViewport\".size = get_viewport().size
+	$\"Viewports/LeftViewport\".size = get_viewport().size/2
+	$\"Viewports/RightViewport\".size = get_viewport().size/2
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("Player/Viewports/CenterViewport")
+
+[sub_resource type="ViewportTexture" id=3]
+
+[sub_resource type="ViewportTexture" id=4]
+viewport_path = NodePath("Player/Viewports/LeftViewport")
+
+[sub_resource type="ViewportTexture" id=5]
+viewport_path = NodePath("Player/Viewports/RightViewport")
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 3 )
+shader_param/brightness = 2.0
+
+[sub_resource type="PhysicsMaterial" id=7]
+
+[sub_resource type="ArrayMesh" id=8]
+surfaces/0 = {
+"aabb": AABB( -1, 0, -1, 2, 0.162714, 2 ),
+"array_data": PoolByteArray( 3, 57, 52, 49, 3, 185, 0, 60, 87, 71, 198, 0, 167, 86, 230, 127, 95, 50, 200, 52, 168, 57, 0, 0, 168, 185, 0, 60, 87, 71, 198, 0, 166, 82, 224, 127, 225, 44, 240, 50, 100, 59, 0, 0, 31, 182, 0, 60, 87, 71, 198, 0, 169, 90, 238, 127, 125, 8, 104, 54, 141, 58, 52, 49, 109, 181, 0, 60, 87, 71, 198, 0, 172, 93, 245, 127, 165, 48, 222, 54, 31, 182, 0, 0, 100, 59, 0, 60, 198, 71, 87, 0, 145, 204, 225, 127, 67, 58, 99, 59, 168, 185, 0, 0, 168, 57, 0, 60, 198, 71, 87, 0, 149, 192, 238, 127, 99, 59, 67, 58, 3, 185, 52, 49, 3, 57, 0, 60, 198, 71, 87, 0, 147, 197, 232, 127, 104, 58, 155, 57, 109, 181, 52, 49, 141, 58, 0, 60, 198, 71, 87, 0, 144, 211, 219, 127, 155, 57, 104, 58, 109, 53, 52, 49, 141, 186, 0, 60, 58, 71, 169, 0, 146, 55, 228, 127, 200, 52, 95, 50, 31, 54, 0, 0, 100, 187, 0, 60, 58, 71, 169, 0, 146, 55, 228, 127, 240, 50, 225, 44, 168, 57, 0, 0, 168, 185, 0, 60, 58, 71, 169, 0, 146, 56, 229, 127, 225, 44, 240, 50, 3, 57, 52, 49, 3, 185, 0, 60, 58, 71, 169, 0, 146, 56, 229, 127, 95, 50, 200, 52, 0, 0, 52, 49, 23, 59, 0, 60, 236, 71, 102, 0, 133, 230, 251, 127, 144, 56, 214, 58, 0, 0, 0, 0, 0, 60, 0, 60, 236, 71, 102, 0, 133, 229, 251, 127, 203, 56, 255, 59, 31, 182, 0, 0, 100, 59, 0, 60, 236, 71, 102, 0, 132, 231, 250, 127, 67, 58, 99, 59, 109, 181, 52, 49, 141, 58, 0, 60, 236, 71, 102, 0, 132, 232, 249, 127, 155, 57, 104, 58, 31, 182, 0, 0, 100, 187, 0, 60, 236, 71, 154, 0, 132, 0, 24, 127, 203, 56, 126, 8, 0, 0, 0, 0, 0, 188, 0, 60, 236, 71, 154, 0, 132, 0, 24, 127, 104, 54, 126, 8, 0, 0, 52, 49, 23, 187, 0, 60, 236, 71, 154, 0, 132, 0, 24, 127, 222, 54, 165, 48, 109, 181, 52, 49, 141, 186, 0, 60, 236, 71, 154, 0, 132, 0, 24, 127, 144, 56, 165, 48, 0, 0, 52, 49, 23, 187, 0, 60, 20, 71, 154, 0, 133, 26, 251, 127, 222, 54, 165, 48, 0, 0, 0, 0, 0, 188, 0, 60, 20, 71, 154, 0, 133, 27, 251, 127, 104, 54, 126, 8, 31, 54, 0, 0, 100, 187, 0, 60, 20, 71, 154, 0, 132, 25, 250, 127, 240, 50, 225, 44, 109, 53, 52, 49, 141, 186, 0, 60, 20, 71, 154, 0, 132, 24, 249, 127, 200, 52, 95, 50, 109, 53, 52, 49, 141, 58, 0, 60, 20, 71, 102, 0, 132, 0, 24, 127, 222, 54, 214, 58, 31, 54, 0, 0, 100, 59, 0, 60, 20, 71, 102, 0, 132, 0, 24, 127, 104, 54, 255, 59, 0, 0, 0, 0, 0, 60, 0, 60, 20, 71, 102, 0, 132, 0, 24, 127, 203, 56, 255, 59, 0, 0, 52, 49, 23, 59, 0, 60, 20, 71, 102, 0, 132, 0, 24, 127, 144, 56, 214, 58, 3, 185, 52, 49, 3, 185, 0, 60, 198, 71, 169, 0, 144, 229, 52, 127, 155, 57, 95, 50, 168, 185, 0, 0, 168, 185, 0, 60, 198, 71, 169, 0, 144, 226, 50, 127, 67, 58, 225, 44, 31, 182, 0, 0, 100, 187, 0, 60, 198, 71, 169, 0, 144, 231, 54, 127, 203, 56, 126, 8, 109, 181, 52, 49, 141, 186, 0, 60, 198, 71, 169, 0, 145, 234, 56, 127, 144, 56, 165, 48, 3, 57, 52, 49, 3, 57, 0, 60, 58, 71, 87, 0, 144, 27, 52, 127, 200, 52, 104, 58, 168, 57, 0, 0, 168, 57, 0, 60, 58, 71, 87, 0, 144, 30, 50, 127, 240, 50, 99, 59, 31, 54, 0, 0, 100, 59, 0, 60, 58, 71, 87, 0, 144, 25, 54, 127, 104, 54, 255, 59, 109, 53, 52, 49, 141, 58, 0, 60, 58, 71, 87, 0, 145, 22, 56, 127, 222, 54, 214, 58, 141, 186, 52, 49, 109, 181, 0, 60, 169, 71, 198, 0, 165, 197, 64, 127, 104, 58, 200, 52, 100, 187, 0, 0, 31, 182, 0, 60, 169, 71, 198, 0, 164, 192, 58, 127, 99, 59, 240, 50, 168, 185, 0, 0, 168, 185, 0, 60, 169, 71, 198, 0, 166, 204, 71, 127, 67, 58, 225, 44, 3, 185, 52, 49, 3, 185, 0, 60, 169, 71, 198, 0, 167, 211, 77, 127, 155, 57, 95, 50, 141, 58, 52, 49, 109, 53, 0, 60, 87, 71, 58, 0, 165, 59, 64, 127, 95, 50, 155, 57, 100, 59, 0, 0, 31, 54, 0, 60, 87, 71, 58, 0, 164, 64, 58, 127, 225, 44, 67, 58, 168, 57, 0, 0, 168, 57, 0, 60, 87, 71, 58, 0, 166, 52, 71, 127, 240, 50, 99, 59, 3, 57, 52, 49, 3, 57, 0, 60, 87, 71, 58, 0, 167, 45, 77, 127, 200, 52, 104, 58, 0, 188, 0, 0, 0, 0, 0, 60, 154, 71, 236, 0, 183, 166, 50, 127, 255, 59, 104, 54, 100, 187, 0, 0, 31, 182, 0, 60, 154, 71, 236, 0, 186, 174, 65, 127, 99, 59, 240, 50, 141, 186, 52, 49, 109, 181, 0, 60, 154, 71, 236, 0, 184, 170, 58, 127, 104, 58, 200, 52, 23, 187, 52, 49, 0, 0, 0, 60, 154, 71, 236, 0, 182, 163, 43, 127, 214, 58, 222, 54, 23, 59, 52, 49, 0, 0, 0, 60, 102, 71, 20, 0, 183, 91, 48, 127, 165, 48, 144, 56, 0, 60, 0, 0, 0, 0, 0, 60, 102, 71, 20, 0, 182, 96, 35, 127, 125, 8, 203, 56, 100, 59, 0, 0, 31, 54, 0, 60, 102, 71, 20, 0, 186, 83, 64, 127, 225, 44, 67, 58, 141, 58, 52, 49, 109, 53, 0, 60, 102, 71, 20, 0, 189, 74, 77, 127, 95, 50, 155, 57, 141, 186, 52, 49, 109, 53, 0, 60, 154, 71, 20, 0, 185, 152, 7, 127, 214, 58, 144, 56, 100, 187, 0, 0, 31, 54, 0, 60, 154, 71, 20, 0, 183, 153, 249, 127, 255, 59, 203, 56, 0, 188, 0, 0, 0, 0, 0, 60, 154, 71, 20, 0, 189, 152, 26, 127, 255, 59, 104, 54, 23, 187, 52, 49, 0, 0, 0, 60, 154, 71, 20, 0, 194, 155, 43, 127, 214, 58, 222, 54, 100, 59, 0, 0, 31, 182, 0, 60, 102, 71, 236, 0, 184, 104, 1, 127, 125, 8, 104, 54, 0, 60, 0, 0, 0, 0, 0, 60, 102, 71, 236, 0, 191, 103, 35, 127, 125, 8, 203, 56, 23, 59, 52, 49, 0, 0, 0, 60, 102, 71, 236, 0, 188, 104, 20, 127, 165, 48, 144, 56, 141, 58, 52, 49, 109, 181, 0, 60, 102, 71, 236, 0, 182, 101, 240, 127, 165, 48, 222, 54, 3, 185, 52, 49, 3, 57, 0, 60, 169, 71, 58, 0, 167, 170, 230, 127, 104, 58, 155, 57, 168, 185, 0, 0, 168, 57, 0, 60, 169, 71, 58, 0, 166, 174, 224, 127, 99, 59, 67, 58, 100, 187, 0, 0, 31, 54, 0, 60, 169, 71, 58, 0, 169, 166, 238, 127, 255, 59, 203, 56, 141, 186, 52, 49, 109, 53, 0, 60, 169, 71, 58, 0, 172, 163, 245, 127, 214, 58, 144, 56, 109, 181, 52, 49, 141, 186, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 144, 56, 165, 48, 0, 0, 52, 49, 23, 187, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 222, 54, 165, 48, 109, 53, 52, 49, 141, 186, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 200, 52, 95, 50, 3, 57, 52, 49, 3, 185, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 95, 50, 200, 52, 3, 185, 52, 49, 3, 185, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 155, 57, 95, 50, 141, 58, 52, 49, 109, 181, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 165, 48, 222, 54, 141, 186, 52, 49, 109, 181, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 104, 58, 200, 52, 23, 59, 52, 49, 0, 0, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 165, 48, 144, 56, 23, 187, 52, 49, 0, 0, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 214, 58, 222, 54, 141, 58, 52, 49, 109, 53, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 95, 50, 155, 57, 141, 186, 52, 49, 109, 53, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 214, 58, 144, 56, 3, 185, 52, 49, 3, 57, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 104, 58, 155, 57, 3, 57, 52, 49, 3, 57, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 200, 52, 104, 58, 109, 181, 52, 49, 141, 58, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 155, 57, 104, 58, 109, 53, 52, 49, 141, 58, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 222, 54, 214, 58, 0, 0, 52, 49, 23, 59, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 144, 56, 214, 58 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 4, 0, 6, 0, 8, 0, 9, 0, 10, 0, 8, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 12, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 16, 0, 18, 0, 20, 0, 21, 0, 22, 0, 20, 0, 22, 0, 23, 0, 24, 0, 25, 0, 26, 0, 24, 0, 26, 0, 27, 0, 28, 0, 29, 0, 30, 0, 28, 0, 30, 0, 31, 0, 32, 0, 33, 0, 34, 0, 32, 0, 34, 0, 35, 0, 36, 0, 37, 0, 38, 0, 36, 0, 38, 0, 39, 0, 40, 0, 41, 0, 42, 0, 40, 0, 42, 0, 43, 0, 44, 0, 45, 0, 46, 0, 47, 0, 44, 0, 46, 0, 48, 0, 49, 0, 50, 0, 48, 0, 50, 0, 51, 0, 52, 0, 53, 0, 54, 0, 52, 0, 54, 0, 55, 0, 56, 0, 57, 0, 58, 0, 59, 0, 56, 0, 58, 0, 60, 0, 61, 0, 62, 0, 60, 0, 62, 0, 63, 0, 64, 0, 65, 0, 66, 0, 64, 0, 66, 0, 67, 0, 68, 0, 64, 0, 67, 0, 68, 0, 67, 0, 69, 0, 70, 0, 68, 0, 69, 0, 70, 0, 69, 0, 71, 0, 72, 0, 70, 0, 71, 0, 72, 0, 71, 0, 73, 0, 74, 0, 72, 0, 73, 0, 75, 0, 74, 0, 73, 0, 75, 0, 73, 0, 76, 0, 77, 0, 75, 0, 76, 0, 77, 0, 76, 0, 78, 0, 79, 0, 77, 0, 78, 0 ),
+"blend_shape_data": [  ],
+"format": 98071,
+"index_count": 138,
+"material": ExtResource( 2 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 80
+}
+
+[sub_resource type="SpatialMaterial" id=9]
+flags_unshaded = true
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=10]
+material = SubResource( 9 )
+
+[node name="World" type="Node"]
+
+[node name="Player" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, 0, 1.06378, 4.81335 )
+script = SubResource( 1 )
+
+[node name="Viewports" type="Node" parent="Player"]
+
+[node name="CenterViewport" type="Viewport" parent="Player/Viewports"]
+render_target_v_flip = true
+audio_listener_enable_3d = true
+physics_object_picking = true
+
+[node name="Camera" type="Camera" parent="Player/Viewports/CenterViewport"]
+transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, 0, 1.72707, 4.35233 )
+current = true
+
+[node name="LeftViewport" type="Viewport" parent="Player/Viewports"]
+render_target_v_flip = true
+audio_listener_enable_3d = true
+physics_object_picking = true
+
+[node name="Camera" type="Camera" parent="Player/Viewports/LeftViewport"]
+transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, -0.05, 1.72707, 4.35233 )
+current = true
+
+[node name="RightViewport" type="Viewport" parent="Player/Viewports"]
+render_target_v_flip = true
+audio_listener_enable_3d = true
+physics_object_picking = true
+
+[node name="Camera" type="Camera" parent="Player/Viewports/RightViewport"]
+transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, 0.05, 1.72707, 4.35233 )
+current = true
+
+[node name="CameraHandlers" type="Spatial" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.3 )
+
+[node name="CenterCameraTransform" type="RemoteTransform" parent="Player/CameraHandlers"]
+remote_path = NodePath("../../Viewports/CenterViewport/Camera")
+
+[node name="LeftCameraTransform" type="RemoteTransform" parent="Player/CameraHandlers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 0, 0 )
+remote_path = NodePath("../../Viewports/LeftViewport/Camera")
+
+[node name="RightCameraTransform" type="RemoteTransform" parent="Player/CameraHandlers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, 0 )
+remote_path = NodePath("../../Viewports/RightViewport/Camera")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="MainCamera" type="Control" parent="Player/CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="Player/CanvasLayer/MainCamera"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 2 )
+
+[node name="AnaglyphCamera" type="Control" parent="Player/CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="UI" type="TextureRect" parent="Player/CanvasLayer/AnaglyphCamera"]
+visible = false
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = SubResource( 3 )
+expand = true
+
+[node name="LeftView" type="TextureRect" parent="Player/CanvasLayer/AnaglyphCamera"]
+modulate = Color( 1, 0, 0, 1 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 4 )
+expand = true
+
+[node name="RightView" type="TextureRect" parent="Player/CanvasLayer/AnaglyphCamera"]
+modulate = Color( 0, 1, 1, 0.501961 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 5 )
+expand = true
+
+[node name="ColorRect" type="ColorRect" parent="Player/CanvasLayer/AnaglyphCamera"]
+show_behind_parent = true
+material = SubResource( 6 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="car_showcase" type="Spatial" parent="."]
+
+[node name="ground" type="RigidBody" parent="car_showcase"]
+physics_material_override = SubResource( 7 )
+gravity_scale = 0.0
+
+[node name="Circle" type="MeshInstance" parent="car_showcase/ground"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0166644, 0, 0.00910401 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="car_showcase"]
+transform = Transform( 17.5, 0, 0, 0, 9.7437, 0.224951, 0, -2.24951, 0.97437, 0, 0.187981, -2.98652 )
+mesh = SubResource( 10 )
+material/0 = null

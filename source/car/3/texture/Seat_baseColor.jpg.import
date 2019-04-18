@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Seat_baseColor.jpg-bba99acd1e90ec8c7acd1a966eb06b35.s3tc.stex"
 path.etc2="res://.import/Seat_baseColor.jpg-bba99acd1e90ec8c7acd1a966eb06b35.etc2.stex"
+path.etc="res://.import/Seat_baseColor.jpg-bba99acd1e90ec8c7acd1a966eb06b35.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://car/3/texture/Seat_baseColor.jpg"
-dest_files=[ "res://.import/Seat_baseColor.jpg-bba99acd1e90ec8c7acd1a966eb06b35.s3tc.stex", "res://.import/Seat_baseColor.jpg-bba99acd1e90ec8c7acd1a966eb06b35.etc2.stex" ]
+dest_files=[ "res://.import/Seat_baseColor.jpg-bba99acd1e90ec8c7acd1a966eb06b35.s3tc.stex", "res://.import/Seat_baseColor.jpg-bba99acd1e90ec8c7acd1a966eb06b35.etc2.stex", "res://.import/Seat_baseColor.jpg-bba99acd1e90ec8c7acd1a966eb06b35.etc.stex" ]
 
 [params]
 

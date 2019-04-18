@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.s3tc.stex"
 path.etc2="res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.etc2.stex"
+path.etc="res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://tracks/1/texture/PalmLeaves.001.png"
-dest_files=[ "res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.s3tc.stex", "res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.etc2.stex" ]
+dest_files=[ "res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.s3tc.stex", "res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.etc2.stex", "res://.import/PalmLeaves.001.png-93686b548e5fca445a018cdc3573b190.etc.stex" ]
 
 [params]
 

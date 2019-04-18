@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/TexturesCom_RockGrassy0142_2_seamless_S.jpg-70eade1c0c5346f7c24cdf1a5b916d6f.s3tc.stex"
 path.etc2="res://.import/TexturesCom_RockGrassy0142_2_seamless_S.jpg-70eade1c0c5346f7c24cdf1a5b916d6f.etc2.stex"
+path.etc="res://.import/TexturesCom_RockGrassy0142_2_seamless_S.jpg-70eade1c0c5346f7c24cdf1a5b916d6f.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://tracks/4/texture/TexturesCom_RockGrassy0142_2_seamless_S.jpg"
-dest_files=[ "res://.import/TexturesCom_RockGrassy0142_2_seamless_S.jpg-70eade1c0c5346f7c24cdf1a5b916d6f.s3tc.stex", "res://.import/TexturesCom_RockGrassy0142_2_seamless_S.jpg-70eade1c0c5346f7c24cdf1a5b916d6f.etc2.stex" ]
+dest_files=[ "res://.import/TexturesCom_RockGrassy0142_2_seamless_S.jpg-70eade1c0c5346f7c24cdf1a5b916d6f.s3tc.stex", "res://.import/TexturesCom_RockGrassy0142_2_seamless_S.jpg-70eade1c0c5346f7c24cdf1a5b916d6f.etc2.stex", "res://.import/TexturesCom_RockGrassy0142_2_seamless_S.jpg-70eade1c0c5346f7c24cdf1a5b916d6f.etc.stex" ]
 
 [params]
 

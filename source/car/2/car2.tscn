@@ -228,7 +228,6 @@ material/5 = null
 material/6 = null
 
 [node name="right_rear" type="VehicleWheel" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603377, 0.19311, -1.0209 )
 use_as_traction = true
 wheel_radius = 0.34
@@ -243,7 +242,6 @@ material/0 = null
 material/1 = null
 
 [node name="right_front" type="VehicleWheel" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603377, 0.19311, 0.771967 )
 use_as_steering = true
 wheel_radius = 0.34
@@ -258,7 +256,6 @@ material/0 = null
 material/1 = null
 
 [node name="left_rear" type="VehicleWheel" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.603377, 0.19311, -1.0209 )
 use_as_traction = true
 wheel_radius = 0.34
@@ -273,7 +270,6 @@ material/0 = null
 material/1 = null
 
 [node name="left_front" type="VehicleWheel" parent="."]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.603377, 0.19311, 0.771967 )
 use_as_steering = true
 wheel_radius = 0.34
@@ -378,4 +374,3 @@ margin_bottom = 94.0
 custom_fonts/font = ExtResource( 12 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-

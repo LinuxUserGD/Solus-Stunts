@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/chassis.jpg-acbd65dbdb1d182c454af55f840771cc.s3tc.stex"
 path.etc2="res://.import/chassis.jpg-acbd65dbdb1d182c454af55f840771cc.etc2.stex"
+path.etc="res://.import/chassis.jpg-acbd65dbdb1d182c454af55f840771cc.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://car/2/texture/chassis.jpg"
-dest_files=[ "res://.import/chassis.jpg-acbd65dbdb1d182c454af55f840771cc.s3tc.stex", "res://.import/chassis.jpg-acbd65dbdb1d182c454af55f840771cc.etc2.stex" ]
+dest_files=[ "res://.import/chassis.jpg-acbd65dbdb1d182c454af55f840771cc.s3tc.stex", "res://.import/chassis.jpg-acbd65dbdb1d182c454af55f840771cc.etc2.stex", "res://.import/chassis.jpg-acbd65dbdb1d182c454af55f840771cc.etc.stex" ]
 
 [params]
 

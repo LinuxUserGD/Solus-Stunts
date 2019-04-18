@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Exterior_baseColor.jpg-435fc16ebf98684efe1d426380a117aa.s3tc.stex"
 path.etc2="res://.import/Exterior_baseColor.jpg-435fc16ebf98684efe1d426380a117aa.etc2.stex"
+path.etc="res://.import/Exterior_baseColor.jpg-435fc16ebf98684efe1d426380a117aa.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://car/3/texture/Exterior_baseColor.jpg"
-dest_files=[ "res://.import/Exterior_baseColor.jpg-435fc16ebf98684efe1d426380a117aa.s3tc.stex", "res://.import/Exterior_baseColor.jpg-435fc16ebf98684efe1d426380a117aa.etc2.stex" ]
+dest_files=[ "res://.import/Exterior_baseColor.jpg-435fc16ebf98684efe1d426380a117aa.s3tc.stex", "res://.import/Exterior_baseColor.jpg-435fc16ebf98684efe1d426380a117aa.etc2.stex", "res://.import/Exterior_baseColor.jpg-435fc16ebf98684efe1d426380a117aa.etc.stex" ]
 
 [params]
 
