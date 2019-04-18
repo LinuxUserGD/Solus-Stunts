@@ -176,17 +176,6 @@ func left():
 
 func _on_start_pressed():
 	gamestate.car_num = car_num
-	$"World".queue_free()
-	set_process_input(false)
-	$"Viewport/mobile".set_process_input(true)
-	
-	get_node("Viewport/players").hide()
-	$"Viewport/mobile/speed".show()
-	$"Viewport/play".queue_free()
-	$"Viewport/UI".queue_free()
-	$"World/car_showcase".queue_free()
-	$"car".queue_free()
-	
 	gamestate.begin_game()
 
 
@@ -259,4 +248,3 @@ func set_background(background):
 func _on_playbtn_pressed():
 	get_tree().get_root().get_node("lobby/Viewport/play").hide()
 	get_tree().get_root().get_node("lobby/Viewport/UI").show()
-

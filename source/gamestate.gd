@@ -51,7 +51,17 @@ remote func unregister_player(id):
 
 remote func pre_start_game(tr, car_num, car_num2):
 	var world = load("res://world.tscn").instance()
-	get_tree().get_root().get_node("lobby").add_child(world)
+	$"/root/lobby".add_child(world)
+	$"/root/lobby/World".queue_free()
+	$"/root/lobby".set_process_input(false)
+	$"/root/lobby/Viewport/mobile".set_process_input(true)
+	$"/root/lobby/Viewport/players".hide()
+	$"/root/lobby/Viewport/mobile/speed".show()
+	$"/root/lobby/Viewport/play".queue_free()
+	$"/root/lobby/Viewport/UI".queue_free()
+	$"/root/lobby/World/car_showcase".queue_free()
+	$"/root/lobby/car".queue_free()
+	
 	var newtrack
 
 	if tr==1:
@@ -95,9 +105,16 @@ remote func pre_start_game(tr, car_num, car_num2):
 	car.set_player_name(player_name)
 	world.get_node("vehicles").add_child(car)
 	world.car = car
-	var camera = load("res://anaglyph/World.tscn").instance()
-	car.get_node("cambase/Camera").add_child(camera)
-	car.get_node("cambase/Camera/World/car_showcase").queue_free()
+	#var camera = load("res://anaglyph/World.tscn").instance()
+	#car.get_node("cambase/Camera").add_child(camera)
+	$"/root/lobby/Viewport".queue_free()
+	#var newvp = load("res://Viewport.tscn").instance()
+	#newvp.set_name("Viewport2")
+	#car.add_child(newvp)
+	#var vp = ViewportTexture.new()
+	#print(car.get_node("Viewport2").get_path())
+	#vp.viewport_path = "Viewport2"
+	#car.get_node("cambase/Camera/World/Player/CanvasLayer/AnaglyphCamera/UI").texture = vp
 	
 	for pn in players:
 		var car_scene2

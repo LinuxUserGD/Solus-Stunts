@@ -14,14 +14,14 @@
 [ext_resource path="res://default.tres" type="Theme" id=12]
 [ext_resource path="res://assets/ui/32.png" type="Texture" id=13]
 [ext_resource path="res://anaglyph/brightness.shader" type="Shader" id=14]
-[ext_resource path="res://car/2/car2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://car/1/car.tscn" type="PackedScene" id=15]
 [ext_resource path="res://car/3/car3.tscn" type="PackedScene" id=16]
 [ext_resource path="res://settings/settings.gd" type="Script" id=17]
 [ext_resource path="res://font/font_list.tres" type="DynamicFont" id=18]
 [ext_resource path="res://font/font_mp.tres" type="DynamicFont" id=19]
 [ext_resource path="res://assets/music/ArcLight.ogg" type="AudioStream" id=20]
 [ext_resource path="res://font/carlito/google-crosextrafonts-carlito-20130920/Carlito-Regular.ttf" type="DynamicFontData" id=21]
-[ext_resource path="res://car/1/car.tscn" type="PackedScene" id=22]
+[ext_resource path="res://car/2/car2.tscn" type="PackedScene" id=22]
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 1 )
@@ -659,7 +659,7 @@ size_flags_vertical = 2
 theme = SubResource( 11 )
 auto_height = true
 
-[node name="car_load1" parent="." instance=ExtResource( 15 )]
+[node name="car_load1" parent="." instance=ExtResource( 22 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0.5, -5 )
 physics_material_override = SubResource( 12 )
 gravity_scale = 0.0
@@ -671,7 +671,7 @@ physics_material_override = SubResource( 13 )
 gravity_scale = 0.0
 force = 1500
 
-[node name="car" parent="." instance=ExtResource( 22 )]
+[node name="car" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 physics_material_override = SubResource( 14 )
 gravity_scale = 0.0

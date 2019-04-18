@@ -71,15 +71,40 @@ func _physics_process(_delta):
 			get_node("info/time").set_text(str(seconds) + "s")
 		else:
 			get_node("info/time").set_text(str(minutes) + "m " + str(seconds) + "s")
-	
-		if Input.is_action_pressed("ui_left") or r.get_node("lobby/Viewport/mobile/steering/left").is_pressed():
+		if has_node("Viewport/mobile"):
+			if get_node("Viewport/mobile/steering/left").is_pressed():
+				steer_target = STEER_LIMIT
+			elif get_node("Viewport/mobile/steering/right").is_pressed():
+				steer_target = -STEER_LIMIT
+			if get_node("Viewport/mobile/speed/gas").is_pressed():
+				if (speed < MAX_SPEED):
+					set_engine_force(force)
+				else:
+					set_engine_force(0)
+			else:
+				if (speed > 3):
+					set_engine_force(-force/4)
+				else:
+					set_engine_force(0)
+			if get_node("Viewport/mobile/speed/brake").is_pressed():
+				if (speed > 5):
+					set_brake(1)
+					set_engine_force(-force*braking_force_mult)
+				else:
+					set_brake(0.0)
+					set_engine_force(-force)
+		if Input.is_action_pressed("ui_left"):
 			steer_target = STEER_LIMIT
-		elif Input.is_action_pressed("ui_right") or r.get_node("lobby/Viewport/mobile/steering/right").is_pressed():
+		elif Input.is_action_pressed("ui_right"):
 			steer_target = -STEER_LIMIT
 		else:
 			steer_target = 0
 		
-		if Input.is_action_pressed("ui_up") or r.get_node("lobby/Viewport/mobile/speed/gas").is_pressed():
+		
+		
+		
+		
+		if Input.is_action_pressed("ui_up"):
 			if (speed < MAX_SPEED):
 				set_engine_force(force)
 			else:
@@ -90,7 +115,7 @@ func _physics_process(_delta):
 			else:
 				set_engine_force(0)
 		
-		if Input.is_action_pressed("ui_down") or r.get_node("lobby/Viewport/mobile/speed/brake").is_pressed():
+		if Input.is_action_pressed("ui_down"):
 			if (speed > 5):
 				set_brake(1)
 				set_engine_force(-force*braking_force_mult)
