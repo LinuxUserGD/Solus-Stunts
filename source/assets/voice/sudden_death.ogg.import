@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sudden_death.ogg-8dad644e6d0a79897258a583d885f04b.oggstr"
+
+[deps]
+
+source_file="res://assets/voice/sudden_death.ogg"
+dest_files=[ "res://.import/sudden_death.ogg-8dad644e6d0a79897258a583d885f04b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

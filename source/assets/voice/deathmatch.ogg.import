@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/deathmatch.ogg-5bae9c14b185ec444d74e1b364f191f6.oggstr"
+
+[deps]
+
+source_file="res://assets/voice/deathmatch.ogg"
+dest_files=[ "res://.import/deathmatch.ogg-5bae9c14b185ec444d74e1b364f191f6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

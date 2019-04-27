@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Pleasant Creek.ogg-353b06a33dd2c6672b6975d35d577e7f.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Pleasant Creek.ogg"
+dest_files=[ "res://.import/Pleasant Creek.ogg-353b06a33dd2c6672b6975d35d577e7f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

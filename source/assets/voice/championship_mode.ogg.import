@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/championship_mode.ogg-77d5b8f3a650a23845316ce25bd77bfc.oggstr"
+
+[deps]
+
+source_file="res://assets/voice/championship_mode.ogg"
+dest_files=[ "res://.import/championship_mode.ogg-77d5b8f3a650a23845316ce25bd77bfc.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

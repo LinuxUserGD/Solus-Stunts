@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tie_breaker.ogg-81e61c6bedc8761c6d9cb62f88cc0151.oggstr"
+
+[deps]
+
+source_file="res://assets/voice/tie_breaker.ogg"
+dest_files=[ "res://.import/tie_breaker.ogg-81e61c6bedc8761c6d9cb62f88cc0151.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/prepare_yourself.ogg-8cc875b0457a7e1a0f242e5030030130.oggstr"
+
+[deps]
+
+source_file="res://assets/voice/prepare_yourself.ogg"
+dest_files=[ "res://.import/prepare_yourself.ogg-8cc875b0457a7e1a0f242e5030030130.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
