@@ -192,4 +192,3 @@ func _on_Effect_value_changed(value):
 		var rightcamera = get_node("/root/lobby/World/Player/Viewports/RightViewport/Camera")
 		leftcamera.translation.x = -0.02 - value/600
 		rightcamera.translation.x = 0.02 + value/600
-		get_node("/root/lobby/World/Player/Viewports/CenterViewport/Camera").translation.x =  -0.02 - value/600

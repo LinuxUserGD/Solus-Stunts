@@ -6,5 +6,6 @@ audio_listener_enable_3d = true
 physics_object_picking = true
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, -0.05, 1.81329, 3.93898 )
+transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, 0, 1.813, 3.939 )
+current = true
 far = 1e+09

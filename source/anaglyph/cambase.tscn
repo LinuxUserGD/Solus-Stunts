@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://anaglyph/brightness.shader" type="Shader" id=1]
+
+[sub_resource type="GDScript" id=8]
+script/source = "extends Spatial
+
+func _ready():
+	get_tree().connect(\"screen_resized\",self,\"screen_resized\")
+	screen_resized()
+
+func screen_resized():
+	get_parent().get_node(\"center/CenterViewport\").size = get_viewport().size
+	get_parent().get_node(\"left/LeftViewport\").size = get_viewport().size/2
+	get_parent().get_node(\"right/RightViewport\").size = get_viewport().size/2"
+
+[sub_resource type="ViewportTexture" id=9]
+viewport_path = NodePath("Viewport2")
+
+[sub_resource type="ViewportTexture" id=10]
+viewport_path = NodePath("center/CenterViewport")
+
+[sub_resource type="ViewportTexture" id=11]
+viewport_path = NodePath("left/LeftViewport")
+
+[sub_resource type="ViewportTexture" id=12]
+viewport_path = NodePath("right/RightViewport")
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = ExtResource( 1 )
+shader_param/brightness = 2.0
+
+[node name="cambase" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, 0, 1.15, 4.4 )
+script = SubResource( 8 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Cameras" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="UI" type="TextureRect" parent="CanvasLayer/Cameras"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = SubResource( 9 )
+expand = true
+
+[node name="MainView" type="TextureRect" parent="CanvasLayer/Cameras"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 10 )
+expand = true
+
+[node name="LeftView" type="TextureRect" parent="CanvasLayer/Cameras"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 11 )
+expand = true
+
+[node name="RightView" type="TextureRect" parent="CanvasLayer/Cameras"]
+visible = false
+modulate = Color( 0, 1, 1, 0.501961 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 12 )
+expand = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Cameras"]
+visible = false
+show_behind_parent = true
+material = SubResource( 13 )
+anchor_right = 1.0
+anchor_bottom = 1.0

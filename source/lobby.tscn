@@ -17,11 +17,11 @@
 [ext_resource path="res://assets/music/ArcLight.ogg" type="AudioStream" id=15]
 [ext_resource path="res://font/carlito/google-crosextrafonts-carlito-20130920/Carlito-Regular.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://anaglyph/RightViewport.tscn" type="PackedScene" id=17]
+[ext_resource path="res://car/1/car.tscn" type="PackedScene" id=18]
 [ext_resource path="res://anaglyph/LeftViewport.tscn" type="PackedScene" id=19]
 [ext_resource path="res://anaglyph/brightness.shader" type="Shader" id=20]
 [ext_resource path="res://car/showcase/material/surface.material" type="Material" id=21]
 [ext_resource path="res://images/car.jpg" type="Texture" id=22]
-[ext_resource path="res://car/1/car.tscn" type="PackedScene" id=23]
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 2 )
@@ -446,7 +446,7 @@ size_flags_vertical = 2
 theme = SubResource( 7 )
 auto_height = true
 
-[node name="car" parent="." instance=ExtResource( 23 )]
+[node name="car" parent="." instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 physics_material_override = SubResource( 8 )
 gravity_scale = 0.0

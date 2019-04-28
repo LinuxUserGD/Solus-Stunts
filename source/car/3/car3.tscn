@@ -167,46 +167,35 @@ surfaces/1 = {
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 0.503554, 0.276143, 1.10854 )
 
-[sub_resource type="GDScript" id=9]
+[sub_resource type="QuadMesh" id=9]
+
+[sub_resource type="GDScript" id=14]
 script/source = "extends Spatial
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	get_tree().connect(\"screen_resized\",self,\"screen_resized\")
 	screen_resized()
-	pass # Replace with function body.
 
 func screen_resized():
-	$\"Viewports/CenterViewport\".size = get_viewport().size
-	$\"Viewports/LeftViewport\".size = get_viewport().size/2
-	$\"Viewports/RightViewport\".size = get_viewport().size/2
+	get_parent().get_node(\"center/CenterViewport\").size = get_viewport().size
+	get_parent().get_node(\"left/LeftViewport\").size = get_viewport().size/2
+	get_parent().get_node(\"right/RightViewport\").size = get_viewport().size/2"
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-"
-
-[sub_resource type="ViewportTexture" id=10]
-viewport_path = NodePath("cambase/Camera/World/Player/Viewports/CenterViewport")
-
-[sub_resource type="ViewportTexture" id=11]
+[sub_resource type="ViewportTexture" id=15]
 viewport_path = NodePath("Viewport2")
 
-[sub_resource type="ViewportTexture" id=12]
-viewport_path = NodePath("cambase/Camera/World/Player/Viewports/LeftViewport")
+[sub_resource type="ViewportTexture" id=16]
+viewport_path = NodePath("center/CenterViewport")
 
-[sub_resource type="ViewportTexture" id=13]
-viewport_path = NodePath("cambase/Camera/World/Player/Viewports/RightViewport")
+[sub_resource type="ViewportTexture" id=17]
+viewport_path = NodePath("left/LeftViewport")
 
-[sub_resource type="ShaderMaterial" id=14]
+[sub_resource type="ViewportTexture" id=18]
+viewport_path = NodePath("right/RightViewport")
+
+[sub_resource type="ShaderMaterial" id=13]
 shader = ExtResource( 11 )
 shader_param/brightness = 2.0
-
-[sub_resource type="QuadMesh" id=15]
 
 [node name="BODY" type="VehicleBody"]
 mass = 71.4286
@@ -287,113 +276,6 @@ material/1 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.607985, -0.030192 )
 shape = SubResource( 8 )
 
-[node name="cambase" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
-
-[node name="Camera" type="Camera" parent="cambase"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1 )
-fov = 60.0
-near = 0.1
-far = 100000.0
-script = ExtResource( 9 )
-min_distance = 5.0
-max_distance = 5.0
-
-[node name="World" type="Node" parent="cambase/Camera"]
-
-[node name="Player" type="Spatial" parent="cambase/Camera/World"]
-script = SubResource( 9 )
-
-[node name="Viewports" type="Node" parent="cambase/Camera/World/Player"]
-
-[node name="CenterViewport" type="Viewport" parent="cambase/Camera/World/Player/Viewports"]
-render_target_v_flip = true
-audio_listener_enable_3d = true
-physics_object_picking = true
-
-[node name="Camera" type="Camera" parent="cambase/Camera/World/Player/Viewports/CenterViewport"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.3 )
-current = true
-
-[node name="LeftViewport" type="Viewport" parent="cambase/Camera/World/Player/Viewports"]
-render_target_v_flip = true
-audio_listener_enable_3d = true
-physics_object_picking = true
-
-[node name="Camera" type="Camera" parent="cambase/Camera/World/Player/Viewports/LeftViewport"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 0.75, -0.3 )
-current = true
-
-[node name="RightViewport" type="Viewport" parent="cambase/Camera/World/Player/Viewports"]
-render_target_v_flip = true
-audio_listener_enable_3d = true
-physics_object_picking = true
-
-[node name="Camera" type="Camera" parent="cambase/Camera/World/Player/Viewports/RightViewport"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.75, -0.3 )
-current = true
-
-[node name="CameraHandlers" type="Spatial" parent="cambase/Camera/World/Player"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.3 )
-
-[node name="CenterCameraTransform" type="RemoteTransform" parent="cambase/Camera/World/Player/CameraHandlers"]
-remote_path = NodePath("../../Viewports/CenterViewport/Camera")
-
-[node name="LeftCameraTransform" type="RemoteTransform" parent="cambase/Camera/World/Player/CameraHandlers"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 0, 0 )
-remote_path = NodePath("../../Viewports/LeftViewport/Camera")
-
-[node name="RightCameraTransform" type="RemoteTransform" parent="cambase/Camera/World/Player/CameraHandlers"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, 0 )
-remote_path = NodePath("../../Viewports/RightViewport/Camera")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="cambase/Camera/World/Player"]
-
-[node name="MainCamera" type="Control" parent="cambase/Camera/World/Player/CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="TextureRect" type="TextureRect" parent="cambase/Camera/World/Player/CanvasLayer/MainCamera"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = SubResource( 10 )
-expand = true
-
-[node name="AnaglyphCamera" type="Control" parent="cambase/Camera/World/Player/CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="UI" type="TextureRect" parent="cambase/Camera/World/Player/CanvasLayer/AnaglyphCamera"]
-margin_right = 1920.0
-margin_bottom = 1080.0
-texture = SubResource( 11 )
-expand = true
-
-[node name="LeftView" type="TextureRect" parent="cambase/Camera/World/Player/CanvasLayer/AnaglyphCamera"]
-visible = false
-modulate = Color( 1, 0, 0, 1 )
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = SubResource( 12 )
-expand = true
-
-[node name="RightView" type="TextureRect" parent="cambase/Camera/World/Player/CanvasLayer/AnaglyphCamera"]
-visible = false
-modulate = Color( 0, 1, 1, 0.501961 )
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = SubResource( 13 )
-expand = true
-
-[node name="ColorRect" type="ColorRect" parent="cambase/Camera/World/Player/CanvasLayer/AnaglyphCamera"]
-visible = false
-show_behind_parent = true
-material = SubResource( 14 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.2, 0.358521, 1.38219 )
 light_energy = 4.0
@@ -440,7 +322,7 @@ valign = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( -1, 0, -1.50996e-07, 0, 0.5, 0, 1.50996e-07, 0, -1, 0, 1.31066, -0.33117 )
-mesh = SubResource( 15 )
+mesh = SubResource( 9 )
 material/0 = null
 
 [node name="info" type="Control" parent="."]
@@ -471,3 +353,111 @@ custom_fonts/font = ExtResource( 10 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Viewport2" parent="." instance=ExtResource( 12 )]
+
+[node name="cambase" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, 0, 1.15, 4.4 )
+script = SubResource( 14 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="cambase"]
+
+[node name="Cameras" type="Control" parent="cambase/CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="UI" type="TextureRect" parent="cambase/CanvasLayer/Cameras"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = SubResource( 15 )
+expand = true
+
+[node name="MainView" type="TextureRect" parent="cambase/CanvasLayer/Cameras"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 16 )
+expand = true
+
+[node name="LeftView" type="TextureRect" parent="cambase/CanvasLayer/Cameras"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 17 )
+expand = true
+
+[node name="RightView" type="TextureRect" parent="cambase/CanvasLayer/Cameras"]
+visible = false
+modulate = Color( 0, 1, 1, 0.501961 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 18 )
+expand = true
+
+[node name="ColorRect" type="ColorRect" parent="cambase/CanvasLayer/Cameras"]
+visible = false
+show_behind_parent = true
+material = SubResource( 13 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="left" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, 0, 1.15, 4.4 )
+
+[node name="LeftViewport" type="Viewport" parent="left"]
+render_target_v_flip = true
+audio_listener_enable_3d = true
+physics_object_picking = true
+
+[node name="Camera" type="Camera" parent="left/LeftViewport"]
+transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, -0.05, 1.81329, 3.93898 )
+current = true
+far = 1e+09
+
+[node name="CameraHandlers" type="Spatial" parent="left"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.3 )
+
+[node name="LeftCameraTransform" type="RemoteTransform" parent="left/CameraHandlers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 0, 0 )
+remote_path = NodePath("../../LeftViewport/Camera")
+
+[node name="right" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, 0, 1.15, 4.4 )
+
+[node name="RightViewport" type="Viewport" parent="right"]
+render_target_v_flip = true
+audio_listener_enable_3d = true
+physics_object_picking = true
+
+[node name="Camera" type="Camera" parent="right/RightViewport"]
+transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, 0.05, 1.81329, 3.93898 )
+current = true
+far = 1e+09
+
+[node name="CameraHandlers" type="Spatial" parent="right"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.3 )
+
+[node name="RightCameraTransform" type="RemoteTransform" parent="right/CameraHandlers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, 0 )
+remote_path = NodePath("../../RightViewport/Camera")
+
+[node name="center" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, 0, 1.15, 4.4 )
+script = ExtResource( 9 )
+
+[node name="CenterViewport" type="Viewport" parent="center"]
+render_target_v_flip = true
+audio_listener_enable_3d = true
+physics_object_picking = true
+
+[node name="Camera" type="Camera" parent="center/CenterViewport"]
+transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, 0, 1.81329, 3.93898 )
+current = true
+far = 1e+09
+
+[node name="CameraHandlers" type="Spatial" parent="center"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.3 )
+
+[node name="CenterCameraTransform" type="RemoteTransform" parent="center/CameraHandlers"]
+remote_path = NodePath("../../CenterViewport/Camera")
