@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://lobby.gd" type="Script" id=1]
 [ext_resource path="res://hdri/cape_hill_2k.hdr" type="Texture" id=2]
@@ -11,17 +11,18 @@
 [ext_resource path="res://font/font.res" type="DynamicFont" id=9]
 [ext_resource path="res://default.tres" type="Theme" id=10]
 [ext_resource path="res://assets/ui/32.png" type="Texture" id=11]
-[ext_resource path="res://settings/SettingsGUI.tscn" type="PackedScene" id=12]
+[ext_resource path="res://anaglyph/LeftViewport.tscn" type="PackedScene" id=12]
 [ext_resource path="res://font/font_list.tres" type="DynamicFont" id=13]
 [ext_resource path="res://font/font_mp.tres" type="DynamicFont" id=14]
 [ext_resource path="res://assets/music/ArcLight.ogg" type="AudioStream" id=15]
 [ext_resource path="res://font/carlito/google-crosextrafonts-carlito-20130920/Carlito-Regular.ttf" type="DynamicFontData" id=16]
-[ext_resource path="res://anaglyph/RightViewport.tscn" type="PackedScene" id=17]
-[ext_resource path="res://car/1/car.tscn" type="PackedScene" id=18]
-[ext_resource path="res://anaglyph/LeftViewport.tscn" type="PackedScene" id=19]
+[ext_resource path="res://demo/demo.gd" type="Script" id=17]
+[ext_resource path="res://settings/settings.gd" type="Script" id=18]
+[ext_resource path="res://anaglyph/RightViewport.tscn" type="PackedScene" id=19]
 [ext_resource path="res://anaglyph/brightness.shader" type="Shader" id=20]
 [ext_resource path="res://car/showcase/material/surface.material" type="Material" id=21]
 [ext_resource path="res://images/car.jpg" type="Texture" id=22]
+[ext_resource path="res://car/1/car.tscn" type="PackedScene" id=23]
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 2 )
@@ -53,6 +54,24 @@ shadow_color = Color( 0, 0, 0, 0 )
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 16.0
+content_margin_bottom = 16.0
+bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.313726 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.54902 )
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.850824 )
 border_width_left = 2
 border_width_top = 2
@@ -63,15 +82,26 @@ corner_detail = 1
 shadow_color = Color( 0, 0, 0, 0 )
 anti_aliasing = false
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.850824 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.828745 )
+corner_detail = 1
+shadow_color = Color( 0, 0, 0, 0 )
+anti_aliasing = false
+
+[sub_resource type="DynamicFont" id=10]
 size = 30
 font_data = ExtResource( 16 )
 
-[sub_resource type="Theme" id=7]
+[sub_resource type="Theme" id=11]
 
-[sub_resource type="PhysicsMaterial" id=8]
+[sub_resource type="PhysicsMaterial" id=12]
 
-[sub_resource type="GDScript" id=9]
+[sub_resource type="GDScript" id=13]
 script/source = "extends Spatial
 
 func _ready():
@@ -84,25 +114,25 @@ func screen_resized():
 	$\"Viewports/LeftViewport\".size = get_viewport().size/2
 	$\"Viewports/RightViewport\".size = get_viewport().size/2"
 
-[sub_resource type="ViewportTexture" id=10]
+[sub_resource type="ViewportTexture" id=14]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="ViewportTexture" id=11]
+[sub_resource type="ViewportTexture" id=15]
 viewport_path = NodePath("World/Player/Viewports/CenterViewport")
 
-[sub_resource type="ViewportTexture" id=12]
+[sub_resource type="ViewportTexture" id=16]
 viewport_path = NodePath("World/Player/Viewports/LeftViewport")
 
-[sub_resource type="ViewportTexture" id=13]
+[sub_resource type="ViewportTexture" id=17]
 viewport_path = NodePath("World/Player/Viewports/RightViewport")
 
-[sub_resource type="ShaderMaterial" id=14]
+[sub_resource type="ShaderMaterial" id=18]
 shader = ExtResource( 20 )
 shader_param/brightness = 2.0
 
-[sub_resource type="PhysicsMaterial" id=15]
+[sub_resource type="PhysicsMaterial" id=19]
 
-[sub_resource type="ArrayMesh" id=16]
+[sub_resource type="ArrayMesh" id=20]
 surfaces/0 = {
 "aabb": AABB( -1, 0, -1, 2, 0.162714, 2 ),
 "array_data": PoolByteArray( 3, 57, 52, 49, 3, 185, 0, 60, 87, 71, 198, 0, 167, 86, 230, 127, 95, 50, 200, 52, 168, 57, 0, 0, 168, 185, 0, 60, 87, 71, 198, 0, 166, 82, 224, 127, 225, 44, 240, 50, 100, 59, 0, 0, 31, 182, 0, 60, 87, 71, 198, 0, 169, 90, 238, 127, 125, 8, 104, 54, 141, 58, 52, 49, 109, 181, 0, 60, 87, 71, 198, 0, 172, 93, 245, 127, 165, 48, 222, 54, 31, 182, 0, 0, 100, 59, 0, 60, 198, 71, 87, 0, 145, 204, 225, 127, 67, 58, 99, 59, 168, 185, 0, 0, 168, 57, 0, 60, 198, 71, 87, 0, 149, 192, 238, 127, 99, 59, 67, 58, 3, 185, 52, 49, 3, 57, 0, 60, 198, 71, 87, 0, 147, 197, 232, 127, 104, 58, 155, 57, 109, 181, 52, 49, 141, 58, 0, 60, 198, 71, 87, 0, 144, 211, 219, 127, 155, 57, 104, 58, 109, 53, 52, 49, 141, 186, 0, 60, 58, 71, 169, 0, 146, 55, 228, 127, 200, 52, 95, 50, 31, 54, 0, 0, 100, 187, 0, 60, 58, 71, 169, 0, 146, 55, 228, 127, 240, 50, 225, 44, 168, 57, 0, 0, 168, 185, 0, 60, 58, 71, 169, 0, 146, 56, 229, 127, 225, 44, 240, 50, 3, 57, 52, 49, 3, 185, 0, 60, 58, 71, 169, 0, 146, 56, 229, 127, 95, 50, 200, 52, 0, 0, 52, 49, 23, 59, 0, 60, 236, 71, 102, 0, 133, 230, 251, 127, 144, 56, 214, 58, 0, 0, 0, 0, 0, 60, 0, 60, 236, 71, 102, 0, 133, 229, 251, 127, 203, 56, 255, 59, 31, 182, 0, 0, 100, 59, 0, 60, 236, 71, 102, 0, 132, 231, 250, 127, 67, 58, 99, 59, 109, 181, 52, 49, 141, 58, 0, 60, 236, 71, 102, 0, 132, 232, 249, 127, 155, 57, 104, 58, 31, 182, 0, 0, 100, 187, 0, 60, 236, 71, 154, 0, 132, 0, 24, 127, 203, 56, 126, 8, 0, 0, 0, 0, 0, 188, 0, 60, 236, 71, 154, 0, 132, 0, 24, 127, 104, 54, 126, 8, 0, 0, 52, 49, 23, 187, 0, 60, 236, 71, 154, 0, 132, 0, 24, 127, 222, 54, 165, 48, 109, 181, 52, 49, 141, 186, 0, 60, 236, 71, 154, 0, 132, 0, 24, 127, 144, 56, 165, 48, 0, 0, 52, 49, 23, 187, 0, 60, 20, 71, 154, 0, 133, 26, 251, 127, 222, 54, 165, 48, 0, 0, 0, 0, 0, 188, 0, 60, 20, 71, 154, 0, 133, 27, 251, 127, 104, 54, 126, 8, 31, 54, 0, 0, 100, 187, 0, 60, 20, 71, 154, 0, 132, 25, 250, 127, 240, 50, 225, 44, 109, 53, 52, 49, 141, 186, 0, 60, 20, 71, 154, 0, 132, 24, 249, 127, 200, 52, 95, 50, 109, 53, 52, 49, 141, 58, 0, 60, 20, 71, 102, 0, 132, 0, 24, 127, 222, 54, 214, 58, 31, 54, 0, 0, 100, 59, 0, 60, 20, 71, 102, 0, 132, 0, 24, 127, 104, 54, 255, 59, 0, 0, 0, 0, 0, 60, 0, 60, 20, 71, 102, 0, 132, 0, 24, 127, 203, 56, 255, 59, 0, 0, 52, 49, 23, 59, 0, 60, 20, 71, 102, 0, 132, 0, 24, 127, 144, 56, 214, 58, 3, 185, 52, 49, 3, 185, 0, 60, 198, 71, 169, 0, 144, 229, 52, 127, 155, 57, 95, 50, 168, 185, 0, 0, 168, 185, 0, 60, 198, 71, 169, 0, 144, 226, 50, 127, 67, 58, 225, 44, 31, 182, 0, 0, 100, 187, 0, 60, 198, 71, 169, 0, 144, 231, 54, 127, 203, 56, 126, 8, 109, 181, 52, 49, 141, 186, 0, 60, 198, 71, 169, 0, 145, 234, 56, 127, 144, 56, 165, 48, 3, 57, 52, 49, 3, 57, 0, 60, 58, 71, 87, 0, 144, 27, 52, 127, 200, 52, 104, 58, 168, 57, 0, 0, 168, 57, 0, 60, 58, 71, 87, 0, 144, 30, 50, 127, 240, 50, 99, 59, 31, 54, 0, 0, 100, 59, 0, 60, 58, 71, 87, 0, 144, 25, 54, 127, 104, 54, 255, 59, 109, 53, 52, 49, 141, 58, 0, 60, 58, 71, 87, 0, 145, 22, 56, 127, 222, 54, 214, 58, 141, 186, 52, 49, 109, 181, 0, 60, 169, 71, 198, 0, 165, 197, 64, 127, 104, 58, 200, 52, 100, 187, 0, 0, 31, 182, 0, 60, 169, 71, 198, 0, 164, 192, 58, 127, 99, 59, 240, 50, 168, 185, 0, 0, 168, 185, 0, 60, 169, 71, 198, 0, 166, 204, 71, 127, 67, 58, 225, 44, 3, 185, 52, 49, 3, 185, 0, 60, 169, 71, 198, 0, 167, 211, 77, 127, 155, 57, 95, 50, 141, 58, 52, 49, 109, 53, 0, 60, 87, 71, 58, 0, 165, 59, 64, 127, 95, 50, 155, 57, 100, 59, 0, 0, 31, 54, 0, 60, 87, 71, 58, 0, 164, 64, 58, 127, 225, 44, 67, 58, 168, 57, 0, 0, 168, 57, 0, 60, 87, 71, 58, 0, 166, 52, 71, 127, 240, 50, 99, 59, 3, 57, 52, 49, 3, 57, 0, 60, 87, 71, 58, 0, 167, 45, 77, 127, 200, 52, 104, 58, 0, 188, 0, 0, 0, 0, 0, 60, 154, 71, 236, 0, 183, 166, 50, 127, 255, 59, 104, 54, 100, 187, 0, 0, 31, 182, 0, 60, 154, 71, 236, 0, 186, 174, 65, 127, 99, 59, 240, 50, 141, 186, 52, 49, 109, 181, 0, 60, 154, 71, 236, 0, 184, 170, 58, 127, 104, 58, 200, 52, 23, 187, 52, 49, 0, 0, 0, 60, 154, 71, 236, 0, 182, 163, 43, 127, 214, 58, 222, 54, 23, 59, 52, 49, 0, 0, 0, 60, 102, 71, 20, 0, 183, 91, 48, 127, 165, 48, 144, 56, 0, 60, 0, 0, 0, 0, 0, 60, 102, 71, 20, 0, 182, 96, 35, 127, 125, 8, 203, 56, 100, 59, 0, 0, 31, 54, 0, 60, 102, 71, 20, 0, 186, 83, 64, 127, 225, 44, 67, 58, 141, 58, 52, 49, 109, 53, 0, 60, 102, 71, 20, 0, 189, 74, 77, 127, 95, 50, 155, 57, 141, 186, 52, 49, 109, 53, 0, 60, 154, 71, 20, 0, 185, 152, 7, 127, 214, 58, 144, 56, 100, 187, 0, 0, 31, 54, 0, 60, 154, 71, 20, 0, 183, 153, 249, 127, 255, 59, 203, 56, 0, 188, 0, 0, 0, 0, 0, 60, 154, 71, 20, 0, 189, 152, 26, 127, 255, 59, 104, 54, 23, 187, 52, 49, 0, 0, 0, 60, 154, 71, 20, 0, 194, 155, 43, 127, 214, 58, 222, 54, 100, 59, 0, 0, 31, 182, 0, 60, 102, 71, 236, 0, 184, 104, 1, 127, 125, 8, 104, 54, 0, 60, 0, 0, 0, 0, 0, 60, 102, 71, 236, 0, 191, 103, 35, 127, 125, 8, 203, 56, 23, 59, 52, 49, 0, 0, 0, 60, 102, 71, 236, 0, 188, 104, 20, 127, 165, 48, 144, 56, 141, 58, 52, 49, 109, 181, 0, 60, 102, 71, 236, 0, 182, 101, 240, 127, 165, 48, 222, 54, 3, 185, 52, 49, 3, 57, 0, 60, 169, 71, 58, 0, 167, 170, 230, 127, 104, 58, 155, 57, 168, 185, 0, 0, 168, 57, 0, 60, 169, 71, 58, 0, 166, 174, 224, 127, 99, 59, 67, 58, 100, 187, 0, 0, 31, 54, 0, 60, 169, 71, 58, 0, 169, 166, 238, 127, 255, 59, 203, 56, 141, 186, 52, 49, 109, 53, 0, 60, 169, 71, 58, 0, 172, 163, 245, 127, 214, 58, 144, 56, 109, 181, 52, 49, 141, 186, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 144, 56, 165, 48, 0, 0, 52, 49, 23, 187, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 222, 54, 165, 48, 109, 53, 52, 49, 141, 186, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 200, 52, 95, 50, 3, 57, 52, 49, 3, 185, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 95, 50, 200, 52, 3, 185, 52, 49, 3, 185, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 155, 57, 95, 50, 141, 58, 52, 49, 109, 181, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 165, 48, 222, 54, 141, 186, 52, 49, 109, 181, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 104, 58, 200, 52, 23, 59, 52, 49, 0, 0, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 165, 48, 144, 56, 23, 187, 52, 49, 0, 0, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 214, 58, 222, 54, 141, 58, 52, 49, 109, 53, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 95, 50, 155, 57, 141, 186, 52, 49, 109, 53, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 214, 58, 144, 56, 3, 185, 52, 49, 3, 57, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 104, 58, 155, 57, 3, 57, 52, 49, 3, 57, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 200, 52, 104, 58, 109, 181, 52, 49, 141, 58, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 155, 57, 104, 58, 109, 53, 52, 49, 141, 58, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 222, 54, 214, 58, 0, 0, 52, 49, 23, 59, 0, 60, 0, 127, 0, 0, 132, 0, 24, 127, 144, 56, 214, 58 ),
@@ -116,12 +146,12 @@ surfaces/0 = {
 "vertex_count": 80
 }
 
-[sub_resource type="SpatialMaterial" id=17]
+[sub_resource type="SpatialMaterial" id=21]
 flags_unshaded = true
 albedo_texture = ExtResource( 22 )
 
-[sub_resource type="QuadMesh" id=18]
-material = SubResource( 17 )
+[sub_resource type="QuadMesh" id=22]
+material = SubResource( 21 )
 
 [node name="lobby" type="Spatial"]
 script = ExtResource( 1 )
@@ -304,7 +334,262 @@ margin_right = 64.0
 margin_bottom = 64.0
 texture_normal = ExtResource( 11 )
 
-[node name="SettingsGUI" parent="Viewport" instance=ExtResource( 12 )]
+[node name="SettingsGUI" type="Control" parent="Viewport"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.857391
+margin_right = -0.857422
+theme = ExtResource( 10 )
+script = ExtResource( 18 )
+
+[node name="Panel" type="Panel" parent="Viewport/SettingsGUI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -425.0
+margin_right = 512.0
+margin_bottom = 375.0
+theme = ExtResource( 10 )
+custom_styles/panel = SubResource( 4 )
+script = ExtResource( 17 )
+
+[node name="WelcomeTitle" type="Label" parent="Viewport/SettingsGUI/Panel"]
+margin_top = 16.0
+margin_right = 1024.0
+margin_bottom = 74.0
+custom_fonts/font = ExtResource( 13 )
+text = "Solus Stunts"
+align = 1
+
+[node name="WelcomeText" type="Label" parent="Viewport/SettingsGUI/Panel"]
+margin_left = 32.0
+margin_top = 51.0
+margin_right = 676.0
+margin_bottom = 700.0
+custom_fonts/font = ExtResource( 14 )
+text = "
+Please choose a preset suited to your hardware below:
+
+
+
+
+
+
+
+
+
+
+
+Choose a display resolution:"
+
+[node name="GraphicsQuality" type="HBoxContainer" parent="Viewport/SettingsGUI/Panel"]
+margin_left = 80.0
+margin_top = 136.0
+margin_right = 419.0
+margin_bottom = 186.0
+custom_constants/separation = 24
+
+[node name="Label" type="Label" parent="Viewport/SettingsGUI/Panel/GraphicsQuality"]
+margin_top = 8.0
+margin_right = 173.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 14 )
+text = "Graphics quality"
+
+[node name="graphics_preset" type="OptionButton" parent="Viewport/SettingsGUI/Panel/GraphicsQuality"]
+margin_left = 197.0
+margin_right = 248.0
+margin_bottom = 50.0
+text = "Low"
+items = [ "Low", null, false, 0, null, "Medium", null, false, 1, null, "High", null, false, 2, null, "Ultra", null, false, 3, null ]
+selected = 0
+
+[node name="GraphicsBlurb" type="RichTextLabel" parent="Viewport/SettingsGUI/Panel"]
+margin_left = 32.0
+margin_top = 237.0
+margin_right = 480.0
+margin_bottom = 349.0
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/normal_font = ExtResource( 14 )
+custom_constants/table_hseparation = 16
+custom_constants/line_separation = 2
+bbcode_enabled = true
+
+[node name="GraphicsInfo" type="RichTextLabel" parent="Viewport/SettingsGUI/Panel"]
+margin_left = 512.0
+margin_top = 141.0
+margin_right = 992.0
+margin_bottom = 397.0
+custom_styles/focus = SubResource( 5 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/normal_font = ExtResource( 14 )
+custom_constants/table_hseparation = 16
+custom_constants/line_separation = 2
+bbcode_enabled = true
+
+[node name="DisplayResolution" type="HBoxContainer" parent="Viewport/SettingsGUI/Panel"]
+margin_left = 80.0
+margin_top = 472.0
+margin_right = 410.0
+margin_bottom = 509.0
+custom_constants/separation = 24
+
+[node name="Label" type="Label" parent="Viewport/SettingsGUI/Panel/DisplayResolution"]
+margin_top = 1.0
+margin_right = 190.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 14 )
+text = "Display resolution"
+
+[node name="display_resolution" type="OptionButton" parent="Viewport/SettingsGUI/Panel/DisplayResolution"]
+margin_left = 214.0
+margin_right = 240.0
+margin_bottom = 37.0
+
+[node name="Audio Volume" type="HBoxContainer" parent="Viewport/SettingsGUI/Panel"]
+margin_left = 539.0
+margin_top = 410.0
+margin_right = 869.0
+margin_bottom = 447.0
+custom_constants/separation = 24
+
+[node name="Label" type="Label" parent="Viewport/SettingsGUI/Panel/Audio Volume"]
+margin_top = 8.0
+margin_right = 151.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 14 )
+text = "Audio Volume"
+
+[node name="HSlider" type="HSlider" parent="Viewport/SettingsGUI/Panel/Audio Volume"]
+margin_left = 175.0
+margin_right = 330.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+theme = ExtResource( 10 )
+value = 75.0
+ticks_on_borders = true
+
+[node name="Anaglyph" type="HBoxContainer" parent="Viewport/SettingsGUI/Panel"]
+margin_left = 539.0
+margin_top = 480.0
+margin_right = 869.0
+margin_bottom = 517.0
+custom_constants/separation = 24
+
+[node name="Label" type="Label" parent="Viewport/SettingsGUI/Panel/Anaglyph"]
+margin_top = 8.0
+margin_right = 136.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 14 )
+text = "3D Anaglyph"
+
+[node name="CheckButton" type="CheckButton" parent="Viewport/SettingsGUI/Panel/Anaglyph"]
+margin_left = 160.0
+margin_right = 214.0
+margin_bottom = 50.0
+
+[node name="Effect" type="HSlider" parent="Viewport/SettingsGUI/Panel/Anaglyph"]
+margin_left = 238.0
+margin_right = 330.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+theme = ExtResource( 10 )
+value = 75.0
+ticks_on_borders = true
+
+[node name="LastLaunch" type="HBoxContainer" parent="Viewport/SettingsGUI/Panel"]
+margin_left = 37.0
+margin_top = 525.0
+margin_right = 367.0
+margin_bottom = 575.0
+custom_constants/separation = 24
+
+[node name="Label" type="Label" parent="Viewport/SettingsGUI/Panel/LastLaunch"]
+margin_top = 8.0
+margin_right = 198.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 14 )
+text = "Last Launch: never"
+
+[node name="PlayerName" type="HBoxContainer" parent="Viewport/SettingsGUI/Panel"]
+margin_left = 37.0
+margin_top = 594.0
+margin_right = 367.0
+margin_bottom = 644.0
+custom_constants/separation = 24
+
+[node name="Label" type="Label" parent="Viewport/SettingsGUI/Panel/PlayerName"]
+margin_top = 8.0
+margin_right = 137.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 14 )
+text = "Player Name"
+
+[node name="LineEdit" type="LineEdit" parent="Viewport/SettingsGUI/Panel/PlayerName"]
+margin_left = 161.0
+margin_right = 330.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+
+[node name="Driver" type="HBoxContainer" parent="Viewport/SettingsGUI/Panel"]
+margin_left = 37.0
+margin_top = 662.0
+margin_right = 367.0
+margin_bottom = 712.0
+custom_constants/separation = 24
+
+[node name="Label" type="Label" parent="Viewport/SettingsGUI/Panel/Driver"]
+margin_top = 8.0
+margin_right = 71.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 14 )
+text = "GLES3"
+
+[node name="CheckButton" type="CheckButton" parent="Viewport/SettingsGUI/Panel/Driver"]
+margin_left = 95.0
+margin_right = 149.0
+margin_bottom = 50.0
+
+[node name="ConfirmButton" type="Button" parent="Viewport/SettingsGUI/Panel"]
+margin_left = 416.0
+margin_top = 722.0
+margin_right = 608.0
+margin_bottom = 775.0
+text = "OK"
+
+[node name="QuitButton" type="Button" parent="Viewport/SettingsGUI/Panel"]
+margin_left = 901.0
+margin_top = 747.0
+margin_right = 974.0
+margin_bottom = 785.0
+text = "Quit"
+
+[node name="ReturnButton" type="Button" parent="Viewport/SettingsGUI/Panel"]
+margin_left = 806.0
+margin_top = 747.0
+margin_right = 879.0
+margin_bottom = 785.0
+text = "Return"
+
+[node name="MenuTip" type="RichTextLabel" parent="Viewport/SettingsGUI/Panel"]
+margin_left = 29.0
+margin_top = 734.0
+margin_right = 349.0
+margin_bottom = 790.0
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=#DDFFFFFF]Press [color=#DDFFFF77][ESCAPE][/color] to toggle this menu.[/color]"
+text = "Press [ESCAPE] to toggle this menu."
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Viewport"]
 stream = ExtResource( 15 )
@@ -318,7 +603,7 @@ anchor_right = 1.0
 margin_left = -592.0
 margin_bottom = 430.0
 theme = ExtResource( 10 )
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 8 )
 
 [node name="name_label" type="Label" parent="Viewport/connect"]
 margin_left = 54.0
@@ -413,7 +698,7 @@ anchor_right = 1.0
 margin_left = -407.0
 margin_bottom = 580.0
 theme = ExtResource( 10 )
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 9 )
 
 [node name="label" type="Label" parent="Viewport/players"]
 margin_left = 49.0
@@ -422,7 +707,7 @@ margin_right = 282.0
 margin_bottom = 98.0
 size_flags_horizontal = 2
 size_flags_vertical = 0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 10 )
 text = "Awaiting Players..."
 
 [node name="start" type="Button" parent="Viewport/players"]
@@ -443,12 +728,12 @@ margin_bottom = 316.0
 rect_scale = Vector2( 1.8, 1.8 )
 size_flags_horizontal = 2
 size_flags_vertical = 2
-theme = SubResource( 7 )
+theme = SubResource( 11 )
 auto_height = true
 
-[node name="car" parent="." instance=ExtResource( 18 )]
+[node name="car" parent="." instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
-physics_material_override = SubResource( 8 )
+physics_material_override = SubResource( 12 )
 gravity_scale = 0.0
 angular_velocity = Vector3( 0, 0.5, 0 )
 force = 1500
@@ -457,7 +742,7 @@ force = 1500
 
 [node name="Player" type="Spatial" parent="World"]
 transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, 0, 1.15, 4.4 )
-script = SubResource( 9 )
+script = SubResource( 13 )
 
 [node name="Viewports" type="Node" parent="World/Player"]
 
@@ -471,9 +756,9 @@ transform = Transform( 1, 0, 0, 0, 0.97437, 0.224951, 0, -0.224951, 0.97437, 0, 
 current = true
 far = 1e+09
 
-[node name="LeftViewport" parent="World/Player/Viewports" instance=ExtResource( 19 )]
+[node name="LeftViewport" parent="World/Player/Viewports" instance=ExtResource( 12 )]
 
-[node name="RightViewport" parent="World/Player/Viewports" instance=ExtResource( 17 )]
+[node name="RightViewport" parent="World/Player/Viewports" instance=ExtResource( 19 )]
 
 [node name="CameraHandlers" type="Spatial" parent="World/Player"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -0.3 )
@@ -498,14 +783,14 @@ anchor_bottom = 1.0
 [node name="UI" type="TextureRect" parent="World/Player/CanvasLayer/Cameras"]
 margin_right = 1920.0
 margin_bottom = 1080.0
-texture = SubResource( 10 )
+texture = SubResource( 14 )
 expand = true
 
 [node name="MainView" type="TextureRect" parent="World/Player/CanvasLayer/Cameras"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 11 )
+texture = SubResource( 15 )
 expand = true
 
 [node name="LeftView" type="TextureRect" parent="World/Player/CanvasLayer/Cameras"]
@@ -514,7 +799,7 @@ modulate = Color( 1, 0, 0, 1 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 12 )
+texture = SubResource( 16 )
 expand = true
 
 [node name="RightView" type="TextureRect" parent="World/Player/CanvasLayer/Cameras"]
@@ -523,30 +808,30 @@ modulate = Color( 0, 1, 1, 0.501961 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 13 )
+texture = SubResource( 17 )
 expand = true
 
 [node name="ColorRect" type="ColorRect" parent="World/Player/CanvasLayer/Cameras"]
 visible = false
 show_behind_parent = true
-material = SubResource( 14 )
+material = SubResource( 18 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="car_showcase" type="Spatial" parent="World"]
 
 [node name="ground" type="RigidBody" parent="World/car_showcase"]
-physics_material_override = SubResource( 15 )
+physics_material_override = SubResource( 19 )
 gravity_scale = 0.0
 
 [node name="Circle" type="MeshInstance" parent="World/car_showcase/ground"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0166644, 0, 0.00910401 )
-mesh = SubResource( 16 )
+mesh = SubResource( 20 )
 material/0 = null
 
 [node name="MeshInstance" type="MeshInstance" parent="World/car_showcase"]
 transform = Transform( 17.5, 0, 0, 0, 9.7437, 0.224951, 0, -2.24951, 0.97437, 0, 0.187981, -2.98652 )
-mesh = SubResource( 18 )
+mesh = SubResource( 22 )
 material/0 = null
 [connection signal="pressed" from="Viewport/mobile/steering/left" to="Viewport/mobile" method="_on_left_pressed"]
 [connection signal="pressed" from="Viewport/mobile/steering/right" to="Viewport/mobile" method="_on_right_pressed"]
@@ -564,6 +849,16 @@ material/0 = null
 [connection signal="mouse_entered" from="Viewport/UI/VBoxContainer/track5" to="." method="_on_track3_mouse_entered"]
 [connection signal="pressed" from="Viewport/UI/VBoxContainer/track5" to="." method="_on_track5_pressed"]
 [connection signal="pressed" from="Viewport/play/playbtn" to="." method="_on_playbtn_pressed"]
+[connection signal="item_selected" from="Viewport/SettingsGUI/Panel/GraphicsQuality/graphics_preset" to="Viewport/SettingsGUI" method="_on_graphics_preset_item_selected"]
+[connection signal="item_selected" from="Viewport/SettingsGUI/Panel/DisplayResolution/display_resolution" to="Viewport/SettingsGUI" method="_on_display_resolutionn_item_selected"]
+[connection signal="value_changed" from="Viewport/SettingsGUI/Panel/Audio Volume/HSlider" to="Viewport/SettingsGUI" method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="Viewport/SettingsGUI/Panel/Anaglyph/CheckButton" to="Viewport/SettingsGUI" method="_on_CheckButton_pressed"]
+[connection signal="value_changed" from="Viewport/SettingsGUI/Panel/Anaglyph/Effect" to="Viewport/SettingsGUI" method="_on_Effect_value_changed"]
+[connection signal="text_changed" from="Viewport/SettingsGUI/Panel/PlayerName/LineEdit" to="Viewport/SettingsGUI/Panel" method="_on_LineEdit_text_changed"]
+[connection signal="pressed" from="Viewport/SettingsGUI/Panel/Driver/CheckButton" to="Viewport/SettingsGUI/Panel" method="_on_CheckButton_pressed"]
+[connection signal="pressed" from="Viewport/SettingsGUI/Panel/ConfirmButton" to="Viewport/SettingsGUI" method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="Viewport/SettingsGUI/Panel/QuitButton" to="Viewport/SettingsGUI" method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="Viewport/SettingsGUI/Panel/ReturnButton" to="Viewport/SettingsGUI" method="_on_ReturnButton_pressed"]
 [connection signal="pressed" from="Viewport/connect/host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Viewport/connect/join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="Viewport/players/start" to="." method="_on_start_pressed"]

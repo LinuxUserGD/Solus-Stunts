@@ -32,9 +32,7 @@ func set_wheel_pos(c):
 
 
 
-
 func _ready():
-	
 	init_connection()
 	update_background(begin, null)
 	remove_child(get_node("World/car_load1"))
@@ -252,3 +250,4 @@ func set_background(background):
 func _on_playbtn_pressed():
 	viewport.get_node("play").hide()
 	viewport.get_node("UI").show()
+	
