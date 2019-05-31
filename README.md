@@ -1,4 +1,4 @@
-# Solus Stunts
+# Solus Stunts - Car Racing Game
 <a href='https://hugegameartgd.itch.io/solus-stunts'><img width='120' alt='available on itch.io' src='https://static.itch.io/images/badge.svg'/></a>
 
 This is the "official" repository of the Solus Stunts Multiplayer Project (made with Godot 3.1).
