@@ -7,7 +7,7 @@ Available on
 <a href='https://www.indiedb.com/games/solus-stunts'><img width='120' alt='available on indiedb' src='https://media.indiedb.com/images/global/indiedb_black.png'/></a>
 <a href='https://www.moddb.com/games/solus-stunts'><img width='120' alt='available on moddb' src='https://media.moddb.com/images/groups/1/4/3338/moddb_logo.png'/></a>
 <a href='https://www.indiexpo.net/de/games/solus-stunts'><img width='120' alt='available on indiexpo' src='https://www.indiexpo.net/system/homepages/logos/000/000/001/normal/NewMaterialMiniLogo.png?1556473233'/></a>
-
+<a href='https://lutris.net/games/solus-stunts/'><img height='30' alt='available on indiexpo' src='https://lutris.net/static/images/logo.2104b09c2c3f.png'/>Lutris</a>
 
 This is the "official" repository of the Solus Stunts Multiplayer Project (made with Godot 3.1).
 
